@@ -19,18 +19,9 @@
   --max: 1160px;
   --text: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, monospace;
-  color-scheme: light dark;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0b1120;
-    --soft: #131c2e;
-    --ink: #f1f5f9;
-    --muted: #94a3b8;
-    --line: #273349;
-    --accent-text: #38bdf8;
-  }
+  /* Die Website ist bewusst immer hell (Beschluss Mehmet, 2026-09-30):
+     einheitlicher Markenauftritt, die dunklen Handy-Ansichten heben sich ab. */
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; }
