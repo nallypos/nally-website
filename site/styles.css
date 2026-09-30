@@ -53,9 +53,9 @@ img, svg { display: block; }
 .skip { position: absolute; left: -9999px; }
 .skip:focus { left: 16px; top: 16px; background: #fff; color: #000; padding: 8px 12px; z-index: 50; }
 
-h1, h2, h3 { margin: 0; letter-spacing: -.025em; line-height: 1.08; font-weight: 800; }
-h1 { font-size: clamp(36px, 4.6vw, 58px); }
-h2 { font-size: clamp(30px, 4.2vw, 48px); }
+h1, h2, h3 { margin: 0; letter-spacing: -.02em; line-height: 1.12; font-weight: 600; }
+h1 { font-size: clamp(32px, 3.4vw, 46px); }
+h2 { font-size: clamp(28px, 3.2vw, 40px); }
 h3 { font-size: 20px; letter-spacing: -.01em; line-height: 1.25; margin-bottom: 6px; }
 .lead { font-size: clamp(18px, 2vw, 20px); color: var(--muted); max-width: 56ch; }
 .kicker { font-family: var(--mono); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-text); margin: 0 0 14px; }
@@ -97,10 +97,10 @@ h3 { font-size: 20px; letter-spacing: -.01em; line-height: 1.25; margin-bottom: 
     linear-gradient(to bottom, var(--line) 1px, transparent 1px) 0 0 / 56px 56px,
     var(--soft);
 }
-.intro-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; padding-block: clamp(40px, 6vw, 80px); }
-.intro-card { background: var(--bg); border: 1px solid var(--line); border-radius: 24px; padding: clamp(28px, 4vw, 48px); box-shadow: 0 20px 50px rgba(15,23,42,.08); }
+.intro-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; padding-block: clamp(24px, 3vw, 36px); }
+.intro-card { background: var(--bg); border: 1px solid var(--line); border-radius: 24px; padding: clamp(24px, 3vw, 36px); box-shadow: 0 20px 50px rgba(15,23,42,.08); }
 .label { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); background: var(--soft); border: 1px solid var(--line); border-radius: 8px; padding: 5px 10px; margin: 0 0 22px; }
-.intro .lead { margin: 20px 0 24px; font-size: 18px; }
+.intro .lead { margin: 16px 0 20px; font-size: 17px; }
 .intro-proof { display: flex; gap: 14px; align-items: center; border-block: 1px solid var(--line); padding: 14px 0; margin-bottom: 26px; font-size: 15px; color: var(--muted); }
 .proof-no { flex: none; font-weight: 800; color: var(--ink); font-size: 15px; padding: 4px 10px; border-radius: 8px; background: var(--accent-glow); }
 .intro-actions { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -109,7 +109,7 @@ h3 { font-size: 20px; letter-spacing: -.01em; line-height: 1.25; margin-bottom: 
    Die Anordnung richtet sich nach der Breite der Bühne (Container-Query):
    schmal = ein Handy, Etiketten darunter; ab 420 px = zwei Handys mit Datenstrom. */
 .stage { container-type: inline-size; }
-.stage-in { position: relative; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 60px 0 20px; }
+.stage-in { position: relative; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 50px 0 20px; }
 .stage-in .phone { order: -1; margin-bottom: 12px; }
 .float {
   position: static; z-index: 4; font-size: 14px; font-weight: 700;
@@ -119,44 +119,52 @@ h3 { font-size: 20px; letter-spacing: -.01em; line-height: 1.25; margin-bottom: 
 .float::before { content: "✓"; color: var(--accent-text); margin-right: 6px; }
 .bits, .customer { display: none; }
 
+/* --w = Breite Kassen-Handy, --c = Breite Kunden-Handy; 2.0556 = Seitenverhältnis 18,5 : 9 */
 @container (min-width: 420px) {
-  .stage-in { display: block; padding: 60px 0 56px; }
-  .stage-in .phone { width: min(290px, 56cqw); margin: 0; justify-self: start; }
+  .stage-in { --w: min(220px, 50cqw); --c: min(120px, 26cqw); display: block; padding: 44px 0 40px; }
+  .stage-in .phone { width: var(--w); margin: 0; justify-self: start; }
   .float { position: absolute; }
   .f1 { top: 0; left: 0; }
-  .f2 { right: 0; bottom: calc(56px + min(160px, 30cqw) * 2.0556 + 14px); }
-  .f3 { bottom: 12px; left: calc(min(290px, 56cqw) / 2); transform: translateX(-50%); }
-  .customer { display: block; position: absolute; right: 0; bottom: 56px; width: min(160px, 30cqw); }
+  .f2 { right: 0; bottom: calc(40px + var(--c) * 2.0556 + 12px); }
+  .f3 { bottom: 4px; left: calc(var(--w) / 2); transform: translateX(-50%); }
+  .customer { display: block; position: absolute; right: 0; bottom: 40px; width: var(--c); }
   /* Strecke von der Oberkante des Kassen-Handys bis zur Oberkante des Kunden-Handys */
   .bits {
-    display: block; position: absolute; z-index: 5; top: 60px;
-    left: calc(min(290px, 56cqw) / 2);
-    right: calc(min(160px, 30cqw) / 2);
-    height: calc((min(290px, 56cqw) - min(160px, 30cqw)) * 2.0556 - 6px);
+    display: block; position: absolute; z-index: 5; top: 44px;
+    left: calc(var(--w) / 2);
+    right: calc(var(--c) / 2);
+    height: calc((var(--w) - var(--c)) * 2.0556 - 6px);
     pointer-events: none;
+  }
+}
+/* Niedrige Bildschirme (z. B. Laptop 1366 × 768): kleinere Handys, damit der nächste Abschnitt ins Bild ragt */
+@media (min-width: 961px) and (max-height: 820px) {
+  @container (min-width: 420px) {
+    .stage .stage-in { --w: min(180px, 50cqw); --c: min(100px, 24cqw); }
   }
 }
 
 /* Kassenansicht auf dem Handy */
+/* Die Kassenansicht skaliert mit der Breite des Handys (cqw = Prozent der Handy-Breite) */
 .phone {
-  justify-self: center; position: relative;
+  justify-self: center; position: relative; container-type: inline-size;
   width: min(290px, 100%); aspect-ratio: 9 / 18.5;
   background: #020617; border-radius: 40px; padding: 11px;
   box-shadow: 0 0 0 2px #334155, 0 30px 80px rgba(56,189,248,.18);
 }
-.screen { height: 100%; border-radius: 30px; background: #1b2537; color: #f1f5f9; overflow: hidden; display: flex; flex-direction: column; font-size: 13px; }
-.screen-top { display: flex; justify-content: space-between; align-items: center; padding: 18px 16px 10px; font-weight: 800; }
+.screen { height: 100%; border-radius: 30px; background: #1b2537; color: #f1f5f9; overflow: hidden; display: flex; flex-direction: column; font-size: clamp(9px, 4.5cqw, 13px); }
+.screen-top { display: flex; justify-content: space-between; align-items: center; padding: clamp(10px, 6.2cqw, 18px) clamp(9px, 5.5cqw, 16px) clamp(6px, 3.4cqw, 10px); font-weight: 800; }
 .screen-top small { font-weight: 600; color: #94a3b8; }
-.tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 0 12px; }
-.tile { background: #263248; border-radius: 12px; padding: 12px 10px; font-weight: 700; }
-.tile span { display: block; color: #94a3b8; font-weight: 600; font-size: 12px; }
+.tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(5px, 2.8cqw, 8px); padding: 0 clamp(7px, 4.1cqw, 12px); }
+.tile { background: #263248; border-radius: 12px; padding: clamp(7px, 4.1cqw, 12px) clamp(6px, 3.4cqw, 10px); font-weight: 700; }
+.tile span { display: block; color: #94a3b8; font-weight: 600; font-size: clamp(8px, 4.1cqw, 12px); }
 .tile.on { background: #38bdf8; color: #0f172a; }
 .tile.on span { color: #0f3b53; }
 .tile.dep span { color: #a78bfa; }
-.cart { margin: 12px; margin-top: auto; background: #263248; border-radius: 14px; padding: 12px; }
+.cart { margin: clamp(7px, 4.1cqw, 12px); margin-top: auto; background: #263248; border-radius: 14px; padding: clamp(7px, 4.1cqw, 12px); }
 .cart-row { display: flex; justify-content: space-between; padding: 3px 0; color: #cbd5e1; }
-.cart-sum { display: flex; justify-content: space-between; font-weight: 800; font-size: 16px; border-top: 1px dashed #475569; margin-top: 6px; padding-top: 8px; }
-.pay { margin-top: 10px; background: #38bdf8; color: #0f172a; text-align: center; font-weight: 800; border-radius: 10px; padding: 11px; }
+.cart-sum { display: flex; justify-content: space-between; font-weight: 800; font-size: clamp(11px, 5.5cqw, 16px); border-top: 1px dashed #475569; margin-top: 6px; padding-top: 8px; }
+.pay { margin-top: clamp(6px, 3.4cqw, 10px); background: #38bdf8; color: #0f172a; text-align: center; font-weight: 800; border-radius: 10px; padding: clamp(7px, 3.8cqw, 11px); }
 
 /* Bon-Stil (Leitmotiv); der Schatten kommt per filter, weil die Maske box-shadow abschneidet */
 .bon-wrap { filter: drop-shadow(0 18px 24px rgba(15,23,42,.14)); }
@@ -177,6 +185,8 @@ h3 { font-size: 20px; letter-spacing: -.01em; line-height: 1.25; margin-bottom: 
 
 /* Abschnitte */
 .section { padding: clamp(64px, 9vw, 112px) 0; }
+/* Erster Abschnitt nach dem Einstieg: knapp, damit seine Überschrift schon beim Laden zu sehen ist */
+.section.first { padding-top: clamp(28px, 3vw, 40px); }
 .section.soft { background: var(--soft); }
 .head { max-width: 720px; margin-bottom: 44px; }
 .head .lead { margin-top: 14px; }
@@ -269,7 +279,7 @@ footer nav a:first-child { margin-left: 0; }
 
 /* Rechtstexte */
 .legal { padding: 64px 20px 72px; max-width: 800px; }
-.legal h1 { font-size: clamp(36px, 6vw, 56px); margin-bottom: 24px; -webkit-hyphens: auto; hyphens: auto; overflow-wrap: break-word; }
+.legal h1 { font-size: clamp(32px, 5vw, 46px); margin-bottom: 24px; -webkit-hyphens: auto; hyphens: auto; overflow-wrap: break-word; }
 .legal h2 { font-size: clamp(22px, 3vw, 28px); margin: 40px 0 10px; }
 .legal address { font-style: normal; }
 .todo { background: #fff3c4; color: #5a4300; padding: 0 4px; border-radius: 4px; }
@@ -305,10 +315,10 @@ footer nav a:first-child { margin-left: 0; }
 
 /* Bon, der oben aus dem Handy kommt */
 .phone-bon {
-  position: absolute; z-index: 0; left: 50%; top: 24px; width: 150px;
-  margin-left: -75px; padding: 10px 10px 14px;
+  position: absolute; z-index: 0; left: 50%; top: 24px; width: 62cqw;
+  margin-left: -31cqw; padding: 10px 10px 14px;
   background: var(--paper); color: var(--paper-ink);
-  font: 10px/1.5 var(--mono); text-align: center;
+  font: clamp(8px, 3.8cqw, 10px)/1.5 var(--mono); text-align: center;
   display: flex; flex-direction: column; gap: 1px;
   box-shadow: 0 6px 16px rgba(15,23,42,.18);
   transform: translateY(0);
@@ -335,11 +345,11 @@ footer nav a:first-child { margin-left: 0; }
   background: rgba(15, 23, 42, .92); color: #f1f5f9; text-align: center;
   opacity: 0; animation: show-paid var(--sale) infinite;
 }
-.paid b { font-size: 17px; }
-.paid small { color: #94a3b8; font-size: 12px; }
+.paid b { font-size: clamp(12px, 6cqw, 17px); }
+.paid small { color: #94a3b8; font-size: clamp(9px, 4.1cqw, 12px); }
 .paid-check {
-  width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center;
-  background: #22c55e; color: #052e16; font-size: 30px; font-weight: 900;
+  width: clamp(36px, 19cqw, 56px); height: clamp(36px, 19cqw, 56px); border-radius: 50%; display: grid; place-items: center;
+  background: #22c55e; color: #052e16; font-size: clamp(20px, 10cqw, 30px); font-weight: 900;
   animation: pop-check var(--sale) infinite;
 }
 
@@ -368,9 +378,9 @@ footer nav a:first-child { margin-left: 0; }
 /* E-Beleg: steigt auf, verengt sich zum Trichter, verschwindet in der Spitze */
 @keyframes phone-bon {
   0%, 54%   { transform: translateY(0); opacity: 1; background: var(--paper); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-  62%       { transform: translateY(-118px); opacity: 1; background: var(--paper); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-  67%       { transform: translateY(-118px) scaleY(.85); opacity: 1; background: #bae6fd; clip-path: polygon(0 0, 100% 0, 60% 100%, 40% 100%); }
-  72%       { transform: translateY(-108px) scale(.12, .5); opacity: 0; background: #38bdf8; clip-path: polygon(0 0, 100% 0, 52% 100%, 48% 100%); }
+  62%       { transform: translateY(-98px); opacity: 1; background: var(--paper); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  67%       { transform: translateY(-98px) scaleY(.85); opacity: 1; background: #bae6fd; clip-path: polygon(0 0, 100% 0, 60% 100%, 40% 100%); }
+  72%       { transform: translateY(-90px) scale(.12, .5); opacity: 0; background: #38bdf8; clip-path: polygon(0 0, 100% 0, 52% 100%, 48% 100%); }
   73%, 100% { transform: translateY(0); opacity: 0; background: var(--paper); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
 }
 
