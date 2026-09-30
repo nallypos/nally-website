@@ -31,6 +31,6 @@ Kommen Anmeldung, Bestellung oder ein Kundenportal dazu, muss die Seite vorher u
 - [x] Antworten zu MOINA: MOINA kassiert noch nicht (Beschluss)
 - [x] Beschluss: Produktname, Konto `nallypos` und öffentliches Repo, Veröffentlichung
 - [x] Google-Vertragspartner und Wirtschafts-Identifikationsnummer bestätigt
-- [ ] 2FA, Domain verifiziert, Pages mit Custom Domain, DNS, Enforce HTTPS
+- [x] Domain verifiziert, Pages mit Custom Domain, DNS, Enforce HTTPS (2FA laut Beschluss erst zum Pilotbetrieb mit echten Zahlungen)
 - [x] Freischalt-Commit: `noindex` raus (404 bleibt bewusst noindex), „Stand“ in `datenschutz.html`
 - [ ] Live-Prüfung durch `qualitaet-verifikation`
