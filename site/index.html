@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>NALLY – Die Kassen-App für Food-Trucks, Marktstände und Imbisse</title>
-  <meta name="description" content="NALLY ist eine Kassen-App für Food-Trucks, Marktstände, Imbisse und Cafés: schnell kassieren, Pfand, Kassenabschluss und DSFinV-K-Export. Die Anbindung einer zertifizierten TSE ist in Arbeit.">
+  <meta name="description" content="NALLY ist eine Kassen-App in Entwicklung für Food-Trucks, Marktstände, Imbisse und Cafés: schnell kassieren, Pfand, Kassenabschluss, DSFinV-K-Export. Als Kasse einsetzbar erst mit zertifizierter TSE, die Anbindung ist in Arbeit.">
   <!-- Bis zur Freigabe nicht in Suchmaschinen aufnehmen. Vor dem Start entfernen. -->
   <meta name="robots" content="noindex">
   <link rel="canonical" href="https://nallypos.de/">
@@ -108,7 +108,7 @@
           <div>
             <h3>Pfand, das nicht mit dem Umsatz verschwimmt</h3>
             <p>Beliebig viele Pfandartikel mit eigener Farbe im Warenkorb, Rücknahme mit einem Tipp. Storno und Teilstorno mit anteiliger Auszahlung – nachvollziehbar im Protokoll.</p>
-            <p class="result">Jede Änderung mit Name und Uhrzeit</p>
+            <p class="result">Jeder Storno mit Name und Uhrzeit</p>
           </div>
           <div class="mini" aria-hidden="true">
             <div class="mini-row"><span>Becherpfand</span><span class="dep-t">+1,00</span></div>
@@ -176,7 +176,7 @@
             <figcaption>
               <span class="tag-soon">geplant</span>
               <h3>Handgerät mit Drucker</h3>
-              <p>Android-Kassengeräte mit eingebautem Bondrucker – ein Gerät direkt an der Schlange. Die Unterstützung solcher Geräte ist geplant, getestet ist noch keins. Die Kartenzahlung läuft dort über die App Ihres Zahlungsanbieters.</p>
+              <p>Android-Kassengeräte mit eingebautem Bondrucker – ein Gerät direkt an der Schlange. Die Unterstützung solcher Geräte ist geplant, getestet ist noch keins. Die Kartenzahlung läuft dort über die Zahlungs-App des jeweiligen Anbieters; ob und wie NALLY sie aufruft, prüfen wir je Gerät.</p>
             </figcaption>
           </figure>
 
@@ -245,8 +245,8 @@
           <h2 id="h-alles">Was sonst noch drinsteckt</h2>
         </div>
         <div class="cards">
-          <div class="card"><h3>Belege</h3><p>Beleg auf dem Bondrucker, per E-Mail oder SMS – mit angebundener TSE auch mit QR-Code.</p><p class="result">Bondruck über LAN und WLAN</p></div>
-          <div class="card"><h3>Kartenzahlung</h3><p>Terminals mit ZVT-Schnittstelle anbinden. Ihren Terminalvertrag behalten Sie. Der Test am Terminal steht noch aus.</p><p class="result">Keine Bindung an einen Zahlungsanbieter</p></div>
+          <div class="card"><h3>Belege</h3><p>Beleg auf dem Bondrucker oder per E-Mail – mit angebundener TSE auch mit QR-Code.</p><p class="result">Bondruck über LAN und WLAN</p></div>
+          <div class="card"><h3>Kartenzahlung</h3><p>Terminals mit ZVT-Schnittstelle anbinden – mit Ihrem eigenen Vertrag bei Ihrem Zahlungsdienstleister; die Kassenanbindung muss am Terminal freigeschaltet sein. Der Test am Terminal steht noch aus.</p><p class="result">Keine Bindung an einen Zahlungsanbieter</p></div>
           <div class="card"><h3>Team</h3><p>PIN-Anmeldung, Rollen mit einzelnen Rechten, Gerätesperre.</p><p class="result">Mehrere Kassen je Betrieb, jede mit eigenem Abschluss</p></div>
           <div class="card"><h3>Bestand</h3><p>Wareneingang, Zählung und Schwund im Journal.</p><p class="result">Direkt aus ZUGFeRD und XRechnung</p></div>
           <div class="card"><h3>Artikel</h3><p>Artikelstamm als CSV bearbeiten, Strichcodes scannen.</p><p class="result">Sicherung mit Prüfsumme</p></div>
@@ -274,11 +274,11 @@
         <div>
           <p class="kicker">Warum NALLY</p>
           <h2 id="h-warum">Vom Stand, für Stände</h2>
-          <p class="lead">NALLY ist am Crêpes-Anhänger von MOINA – Golden Moments entstanden, dem Betrieb unseres Gründers Mehmet Gelgel. Was im Verkauf am Stand nicht funktioniert, kommt nicht in die App.</p>
+          <p class="lead">NALLY ist am Crêpes-Anhänger von MOINA – Golden Moments entstanden, dem Betrieb unseres Gründers Mehmet Gelgel. Was am Stand nicht funktioniert, kommt nicht in die App.</p>
           <ul class="points" role="list">
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg>
-              <div><h3>Für die Pflichten gebaut</h3><p>Belegaufbau nach § 6 KassenSichV, Prüfprotokoll und DSFinV-K-Export gehören zum Kern – nicht zu einem Zusatzpaket. Die Anbindung einer zertifizierten TSE ist in Arbeit. Bis dahin sind Belege nicht abgesichert (siehe <a href="#stand">Entwicklungsstand</a>).</p></div>
+              <div><h3>Für die Pflichten gebaut</h3><p>Belegaufbau nach § 6 KassenSichV, Prüfprotokoll und DSFinV-K-Export gehören zum Kern – nicht zu einem Zusatzpaket. Die Anbindung einer zertifizierten TSE ist in Arbeit. Bis dahin fehlen auf dem Beleg die Angaben der TSE, und NALLY ist noch nicht als Kasse einsetzbar (siehe <a href="#stand">Entwicklungsstand</a>).</p></div>
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><path d="M12 20h.01"/></svg>
@@ -303,7 +303,7 @@
         <div class="path">
           <div class="stop"><div class="dot">1</div><h3>Sie melden sich</h3><p>Sie erzählen, was Sie verkaufen und wo. Wir nehmen Sie auf die Liste der Pilotbetriebe und sagen ehrlich, ab wann NALLY zu Ihnen passt.</p></div>
           <div class="stop"><div class="dot">2</div><h3>Artikel rein</h3><p>Preise, Warengruppen und Pfand anlegen – oder als CSV-Liste übernehmen. Drucker und Terminal verbinden.</p></div>
-          <div class="stop"><div class="dot">3</div><h3>Bon raus</h3><p>Sobald die zertifizierte TSE angebunden ist, starten wir gemeinsam den Echtbetrieb. Ihre Rückmeldung landet direkt bei den Entwicklern.</p></div>
+          <div class="stop"><div class="dot">3</div><h3>Bon raus</h3><p>Sind die zertifizierte TSE angebunden und die übrigen Voraussetzungen für den Kassenbetrieb erfüllt, starten wir gemeinsam den Echtbetrieb. Ihre Kasse melden Sie dann innerhalb eines Monats Ihrem Finanzamt; NALLY zeigt Ihnen die Angaben dafür. Ihre Rückmeldung landet direkt bei den Entwicklern.</p></div>
         </div>
       </div>
     </section>
@@ -352,7 +352,7 @@
       <div class="wrap closing-grid">
         <div>
           <h2 id="h-kontakt">Werden Sie Pilotbetrieb.</h2>
-          <p class="lead">Wir führen eine Liste von Betrieben, die NALLY als Erste nutzen möchten, und richten jeden persönlich ein. Den Echtbetrieb starten wir, sobald die zertifizierte TSE angebunden ist.</p>
+          <p class="lead">Wir führen eine Liste von Betrieben, die NALLY als Erste nutzen möchten, und richten jeden persönlich ein. Den Echtbetrieb starten wir erst, wenn die zertifizierte TSE angebunden ist und NALLY die übrigen Voraussetzungen für den Kassenbetrieb erfüllt.</p>
         </div>
         <div class="closing-cta">
           <a class="btn btn-accent" href="mailto:kontakt@nallypos.de?subject=Pilotbetrieb%20NALLY">Als Pilotbetrieb vormerken</a>
