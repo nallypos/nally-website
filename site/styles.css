@@ -277,3 +277,116 @@ footer nav a:first-child { margin-left: 0; }
   .intro-actions .btn { width: 100%; }
   h1, h2 { overflow-wrap: break-word; -webkit-hyphens: auto; hyphens: auto; }
 }
+
+/* ------------------------------------------------------------------
+   Animationen (nur CSS, verträglich mit der Content-Security-Policy).
+   Ein Durchlauf „Verkauf“ dauert 12 s: tippen, Warenkorb, kassieren,
+   bezahlt, Bon kommt heraus. Bei „Bewegung reduzieren“ steht alles still
+   im fertigen Zustand (siehe Block am Ende).
+   ------------------------------------------------------------------ */
+:root { --sale: 12s; }
+
+.phone { isolation: isolate; }
+.screen { position: relative; z-index: 1; }
+
+/* Bon, der oben aus dem Handy kommt */
+.phone-bon {
+  position: absolute; z-index: 0; left: 50%; top: 24px; width: 150px;
+  margin-left: -75px; padding: 10px 10px 14px;
+  background: var(--paper); color: var(--paper-ink);
+  font: 10px/1.5 var(--mono); text-align: center;
+  display: flex; flex-direction: column; gap: 1px;
+  box-shadow: 0 6px 16px rgba(15,23,42,.18);
+  transform: translateY(0);
+  animation: phone-bon var(--sale) ease-in-out infinite;
+}
+.phone-bon b { font-weight: 700; }
+
+/* Kacheln leuchten beim Antippen kurz auf */
+.t-schoko { animation: tap-schoko var(--sale) infinite; }
+.t-kaffee { animation: tap-kaffee var(--sale) infinite; }
+.t-pfand  { animation: tap-pfand  var(--sale) infinite; }
+
+/* Warenkorb füllt sich */
+.cr1 { animation: show-cr1 var(--sale) infinite; }
+.cr2 { animation: show-cr2 var(--sale) infinite; }
+.cr3 { animation: show-cr3 var(--sale) infinite; }
+.cart-sum { animation: show-sum var(--sale) infinite; }
+.pay { animation: press-pay var(--sale) infinite; }
+
+/* Bezahlt-Anzeige */
+.paid {
+  position: absolute; inset: 0; z-index: 3;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  background: rgba(15, 23, 42, .92); color: #f1f5f9; text-align: center;
+  opacity: 0; animation: show-paid var(--sale) infinite;
+}
+.paid b { font-size: 17px; }
+.paid small { color: #94a3b8; font-size: 12px; }
+.paid-check {
+  width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center;
+  background: #22c55e; color: #052e16; font-size: 30px; font-weight: 900;
+  animation: pop-check var(--sale) infinite;
+}
+
+@keyframes tap-schoko {
+  0%, 6%, 11%, 14%, 100% { background: #263248; color: #f1f5f9; transform: none; }
+  8%, 12.5%              { background: #38bdf8; color: #0f172a; transform: scale(.95); }
+}
+@keyframes tap-kaffee {
+  0%, 18%, 23%, 100% { background: #263248; color: #f1f5f9; transform: none; }
+  20%                { background: #38bdf8; color: #0f172a; transform: scale(.95); }
+}
+@keyframes tap-pfand {
+  0%, 28%, 33%, 100% { background: #263248; transform: none; }
+  30%                { background: #4c3d7a; transform: scale(.95); }
+}
+@keyframes show-cr1 { 0%, 8% { opacity: 0; transform: translateX(-8px); } 11%, 90% { opacity: 1; transform: none; } 96%, 100% { opacity: 0; } }
+@keyframes show-cr2 { 0%, 20% { opacity: 0; transform: translateX(-8px); } 23%, 90% { opacity: 1; transform: none; } 96%, 100% { opacity: 0; } }
+@keyframes show-cr3 { 0%, 30% { opacity: 0; transform: translateX(-8px); } 33%, 90% { opacity: 1; transform: none; } 96%, 100% { opacity: 0; } }
+@keyframes show-sum { 0%, 36% { opacity: 0; } 40%, 90% { opacity: 1; } 96%, 100% { opacity: 0; } }
+@keyframes press-pay {
+  0%, 44%, 50%, 100% { transform: none; filter: none; }
+  47%                { transform: scale(.94); filter: brightness(.85); }
+}
+@keyframes show-paid { 0%, 50% { opacity: 0; } 54%, 84% { opacity: 1; } 90%, 100% { opacity: 0; } }
+@keyframes pop-check { 0%, 51% { transform: scale(.4); } 56% { transform: scale(1.12); } 60%, 100% { transform: scale(1); } }
+@keyframes phone-bon {
+  0%, 54%  { transform: translateY(0); opacity: 1; }
+  72%, 86% { transform: translateY(-118px); opacity: 1; }
+  94%, 100% { transform: translateY(-118px) translateX(40px) rotate(8deg); opacity: 0; }
+}
+
+/* Geräte-Zeichnungen */
+.anim-bon-hand, .anim-bon-theke, .anim-drawer { transform-box: fill-box; }
+.anim-bon-hand  { animation: bon-hand 6s ease-in-out infinite; }
+.anim-bon-theke { animation: bon-theke 7s ease-in-out infinite; }
+.anim-drawer    { animation: drawer 7s ease-in-out infinite; }
+.anim-led       { animation: led 7s steps(1) infinite; }
+@keyframes bon-hand  { 0%, 10% { transform: translateY(70px); } 45%, 85% { transform: translateY(0); } 100% { transform: translateY(70px); } }
+@keyframes bon-theke { 0%, 10% { transform: translateY(78px); } 40%, 85% { transform: translateY(0); } 100% { transform: translateY(78px); } }
+@keyframes drawer    { 0%, 42% { transform: none; } 50%, 78% { transform: translateY(22px); } 88%, 100% { transform: none; } }
+@keyframes led       { 0%, 10% { fill: #22c55e; } 12%, 40% { fill: #f59e0b; } 42%, 100% { fill: #22c55e; } }
+
+/* Reiter: Zeilen bauen sich beim Umschalten nacheinander auf */
+.panel:not([hidden]) .mini-row, .panel:not([hidden]) .mini-big { animation: rise .45s ease-out both; }
+.panel:not([hidden]) .mini-row:nth-child(2) { animation-delay: .08s; }
+.panel:not([hidden]) .mini-row:nth-child(3) { animation-delay: .16s; }
+.panel:not([hidden]) .mini-big { animation-delay: .26s; }
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* Beim Scrollen hereingleiten (nur Browser mit Scroll-Timelines; sonst sofort sichtbar) */
+@supports (animation-timeline: view()) {
+  .card, .device, .stop, .fits span, .points li, .state .bon-wrap, .head {
+    animation: rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 40%;
+  }
+}
+
+/* Bewegung reduzieren: alles im Endzustand, keine Animation */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .paid { display: none; }
+  .phone-bon { display: none; }
+}
