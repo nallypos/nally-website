@@ -28,9 +28,9 @@ Kommen Anmeldung, Bestellung oder ein Kundenportal dazu, muss die Seite vorher u
 - [x] Prüfung durch `recht-compliance`, `qualitaet-verifikation`, `code-review`, `code-review-sicherheit`
 - [x] Kassenrechtliche Aussagen durch `pos-kassen-compliance` freigegeben (mit Änderungen, umgesetzt)
 - [x] Nachprüfung durch `qualitaet-verifikation`: freigabefähig unter Bedingungen
-- [ ] Antworten zu MOINA (8 Fragen von `pos-kassen-compliance`) eingeordnet
-- [ ] Beschluss: Produktname, Konto `nallypos` und öffentliches Repo, Veröffentlichung
-- [ ] Google-Vertragspartner und Wirtschafts-Identifikationsnummer bestätigt
+- [x] Antworten zu MOINA: MOINA kassiert noch nicht (Beschluss)
+- [x] Beschluss: Produktname, Konto `nallypos` und öffentliches Repo, Veröffentlichung
+- [x] Google-Vertragspartner und Wirtschafts-Identifikationsnummer bestätigt
 - [ ] 2FA, Domain verifiziert, Pages mit Custom Domain, DNS, Enforce HTTPS
-- [ ] Freischalt-Commit: `noindex` raus, „Stand“ in `datenschutz.html`, Status-Bon aktuell
+- [x] Freischalt-Commit: `noindex` raus (404 bleibt bewusst noindex), „Stand“ in `datenschutz.html`
 - [ ] Live-Prüfung durch `qualitaet-verifikation`
