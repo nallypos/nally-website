@@ -26,6 +26,11 @@ Kommen Anmeldung, Bestellung oder ein Kundenportal dazu, muss die Seite vorher u
 
 - [x] Impressum und Datenschutz ausgefüllt (bis auf „Stand“)
 - [x] Prüfung durch `recht-compliance`, `qualitaet-verifikation`, `code-review`, `code-review-sicherheit`
-- [ ] Freigabe der kassenrechtlichen Aussagen durch `pos-kassen-compliance`
-- [ ] Nachprüfung durch `qualitaet-verifikation`
-- [ ] Freischaltung wie oben
+- [x] Kassenrechtliche Aussagen durch `pos-kassen-compliance` freigegeben (mit Änderungen, umgesetzt)
+- [x] Nachprüfung durch `qualitaet-verifikation`: freigabefähig unter Bedingungen
+- [ ] Antworten zu MOINA (8 Fragen von `pos-kassen-compliance`) eingeordnet
+- [ ] Beschluss: Produktname, Konto `nallypos` und öffentliches Repo, Veröffentlichung
+- [ ] Google-Vertragspartner und Wirtschafts-Identifikationsnummer bestätigt
+- [ ] 2FA, Domain verifiziert, Pages mit Custom Domain, DNS, Enforce HTTPS
+- [ ] Freischalt-Commit: `noindex` raus, „Stand“ in `datenschutz.html`, Status-Bon aktuell
+- [ ] Live-Prüfung durch `qualitaet-verifikation`
