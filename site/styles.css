@@ -209,11 +209,16 @@ h3 { font-size: 20px; letter-spacing: -.01em; line-height: 1.25; margin-bottom: 
 /* Karten */
 .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .card { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; }
+/* Überschrift, Text und Ergebniszeile liegen in allen Karten einer Reihe auf gleicher Höhe (Subgrid) */
+@supports (grid-template-rows: subgrid) {
+  .card { display: grid; grid-row: span 3; grid-template-rows: subgrid; row-gap: 0; }
+}
 .card p { color: var(--muted); margin: 0 0 16px; }
 
 /* Ergebniszeile mit Häkchen (nach .panel p und .card p, damit sie gewinnt) */
 .panel .result, .card .result { font-size: 15px; font-weight: 700; color: var(--ink); margin: 0; }
 .card .result { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); }
+@supports (grid-template-rows: subgrid) { .card .result { margin-top: 0; } }
 .result::before { content: "✓"; color: var(--accent-text); margin-right: 8px; }
 
 /* Geräte */
