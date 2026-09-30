@@ -131,6 +131,8 @@ h3 { font-size: 20px; letter-spacing: -.01em; line-height: 1.25; margin-bottom: 
   .intro-grid { padding-block: 18px; }
   .section.first { padding-top: 12px; }
   .stage .phone-bon { --rise: -80px; }
+  .intro .lead { font-size: 15.5px; margin: 12px 0 16px; }
+  .label { margin-bottom: 14px; }
   @container (min-width: 420px) {
     .stage .stage-in { --w: min(160px, 50cqw); --c: min(100px, 24cqw); }
   }
