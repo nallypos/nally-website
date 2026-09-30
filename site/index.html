@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NALLY – Die Kassen-App für Food-Trucks, Marktstände und Imbisse</title>
+  <meta name="description" content="NALLY ist eine Kassen-App für Food-Trucks, Marktstände, Imbisse und Cafés: schnell kassieren, Beleg nach KassenSichV, Kassenabschluss und DSFinV-K-Export. Jetzt im Pilotbetrieb.">
+  <!-- Bis zur Freigabe nicht in Suchmaschinen aufnehmen. Vor dem Start entfernen. -->
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://nallypos.de/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#inhalt">Zum Inhalt springen</a>
+
+  <header class="top">
+    <div class="wrap top-inner">
+      <a class="logo" href="./" aria-label="NALLY Startseite"><img class="logo-mark" src="logo.svg" alt="" width="30" height="30">NALLY</a>
+      <nav class="menu" aria-label="Hauptnavigation">
+        <a href="#funktionen">Funktionen</a>
+        <a href="#warum">Warum NALLY</a>
+        <a href="#stand">Stand</a>
+        <a class="btn btn-small" href="#kontakt">Pilot werden</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inhalt">
+    <!-- Einstieg -->
+    <div class="intro">
+      <div class="wrap intro-grid">
+        <div class="intro-card">
+          <p class="label">Kassen-App · im Pilotbetrieb</p>
+          <h1>Die Schlange ist lang. <span class="hl">Die Kasse ist schnell.</span></h1>
+          <p class="lead">NALLY ist die Kassen-App für Food-Trucks, Marktstände, Imbisse und kleine Cafés. Entstanden an einem Crêpes-Anhänger – für alle, die im Stehen verkaufen.</p>
+          <div class="intro-proof">
+            <span class="proof-no">Pilotkunde</span>
+            <span>im Einsatz am Crêpes-Anhänger von MOINA – Golden Moments</span>
+          </div>
+          <div class="intro-actions">
+            <a class="btn btn-ink" href="#kontakt">Pilotbetrieb anfragen</a>
+            <a class="btn btn-line" href="#funktionen">Was NALLY kann</a>
+          </div>
+        </div>
+
+        <div class="stage">
+          <span class="float f1">Läuft ohne Netz</span>
+          <span class="float f2">Bon per E-Mail</span>
+          <span class="float f3">DSFinV-K-Export</span>
+          <div class="phone" role="img" aria-label="Kassenansicht der NALLY-App mit Artikeln und Warenkorb">
+            <div class="screen" aria-hidden="true">
+              <div class="screen-top">Kasse 1 <small>Sa, 14:32</small></div>
+              <div class="tiles">
+                <div class="tile on">Crêpe Nutella<span>4,50 €</span></div>
+                <div class="tile">Crêpe Zucker<span>3,00 €</span></div>
+                <div class="tile">Kaffee<span>2,80 €</span></div>
+                <div class="tile">Limonade<span>3,50 €</span></div>
+                <div class="tile dep">Becherpfand<span>1,00 €</span></div>
+                <div class="tile">Freier Betrag<span>€ …</span></div>
+              </div>
+              <div class="cart">
+                <div class="cart-row"><span>2 × Crêpe Nutella</span><span>9,00</span></div>
+                <div class="cart-row"><span>1 × Kaffee</span><span>2,80</span></div>
+                <div class="cart-row"><span>1 × Becherpfand</span><span>1,00</span></div>
+                <div class="cart-sum"><span>Zu zahlen</span><span>12,80 €</span></div>
+                <div class="pay">Kassieren</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ein Tag mit NALLY: Reiter -->
+    <section class="section" id="funktionen" aria-labelledby="h-funktionen">
+      <div class="wrap">
+        <div class="head center">
+          <p class="kicker">Ein Verkaufstag mit NALLY</p>
+          <h2 id="h-funktionen">Vom ersten Bon bis zum Abschluss</h2>
+          <p class="lead">Morgens öffnen, tagsüber verkaufen, abends mit wenigen Tipps abschließen.</p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Ablauf eines Verkaufstags">
+          <button role="tab" id="t-verkauf" aria-controls="p-verkauf" aria-selected="true">Verkaufen</button>
+          <button role="tab" id="t-pfand" aria-controls="p-pfand" aria-selected="false" tabindex="-1">Pfand &amp; Storno</button>
+          <button role="tab" id="t-abschluss" aria-controls="p-abschluss" aria-selected="false" tabindex="-1">Abschluss</button>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-verkauf" aria-labelledby="t-verkauf">
+          <div>
+            <h3>Wenige Tipps pro Bestellung</h3>
+            <p>Große Kacheln nach Warengruppen, Gewichtsware und freie Beträge. Bestellungen von Gruppen parken Sie und schließen sie später ab. Bezahlt wird bar oder per Karte am girocard-Terminal.</p>
+            <p class="result">Auch ohne Empfang auf der Festwiese</p>
+          </div>
+          <div class="mini" aria-hidden="true">
+            <div class="mini-row"><span>Bon 0417</span><span class="pill-s">geparkt</span></div>
+            <div class="mini-row"><span>Bon 0418</span><span class="pill-s ok">bezahlt · Karte</span></div>
+            <div class="mini-row"><span>Bon 0419</span><span class="pill-s ok">bezahlt · bar</span></div>
+            <div class="mini-big">12,80 €</div>
+          </div>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-pfand" aria-labelledby="t-pfand" hidden>
+          <div>
+            <h3>Pfand, das nicht mit dem Umsatz verschwimmt</h3>
+            <p>Beliebig viele Pfandartikel mit eigener Farbe im Warenkorb, Rücknahme mit einem Tipp. Storno und Teilstorno mit anteiliger Auszahlung – nachvollziehbar im Protokoll.</p>
+            <p class="result">Jede Änderung mit Name und Uhrzeit</p>
+          </div>
+          <div class="mini" aria-hidden="true">
+            <div class="mini-row"><span>Becherpfand</span><span class="dep-t">+1,00</span></div>
+            <div class="mini-row"><span>Pfand-Rücknahme</span><span class="dep-t">−2,00</span></div>
+            <div class="mini-row"><span>Teilstorno Bon 0412</span><span>−3,00</span></div>
+            <div class="mini-big">Protokoll ✓</div>
+          </div>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-abschluss" aria-labelledby="t-abschluss" hidden>
+          <div>
+            <h3>Der Abend gehört wieder Ihnen</h3>
+            <p>Kassensturz, Z-Bericht und Kassenbuch mit Einlage und Entnahme. Für die Buchhaltung gibt es den Buchungsstapel für DATEV und Lexware, für die Kassennachschau den DSFinV-K-Export.</p>
+            <p class="result">Z-Bericht auf Knopfdruck</p>
+          </div>
+          <div class="mini" aria-hidden="true">
+            <div class="mini-row"><span>Umsatz bar</span><span>612,40</span></div>
+            <div class="mini-row"><span>Umsatz Karte</span><span>845,10</span></div>
+            <div class="mini-row"><span>Pfand saldiert</span><span class="dep-t">38,00</span></div>
+            <div class="mini-big">Z-Bericht 0093</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Funktionen als Karten -->
+    <section class="section soft" aria-labelledby="h-alles" style="padding-top: 72px">
+      <div class="wrap">
+        <div class="head">
+          <p class="kicker">Funktionen</p>
+          <h2 id="h-alles">Was sonst noch drinsteckt</h2>
+        </div>
+        <div class="cards">
+          <div class="card"><h3>Belege</h3><p>Beleg mit QR-Code auf dem Bondrucker, per E-Mail oder SMS.</p><p class="result">Bondruck über LAN und WLAN</p></div>
+          <div class="card"><h3>Kartenzahlung</h3><p>Girocard-Terminals über ZVT anbinden.</p><p class="result">Ohne Bindung an einen Zahlungsanbieter</p></div>
+          <div class="card"><h3>Team</h3><p>PIN-Anmeldung, Rollen mit einzelnen Rechten, Gerätesperre.</p><p class="result">Mehrere Kassen je Betrieb</p></div>
+          <div class="card"><h3>Bestand</h3><p>Wareneingang, Zählung und Schwund im Journal.</p><p class="result">Direkt aus ZUGFeRD und XRechnung</p></div>
+          <div class="card"><h3>Artikel</h3><p>Artikelstamm als CSV bearbeiten, Strichcodes scannen.</p><p class="result">Sicherung mit Prüfsumme</p></div>
+          <div class="card"><h3>Buchhaltung</h3><p>Buchungsstapel für DATEV und Lexware.</p><p class="result">Übergabe an die Steuerkanzlei</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Warum NALLY -->
+    <section class="section soft" id="warum" aria-labelledby="h-warum">
+      <div class="wrap why">
+        <div class="bon" aria-hidden="true">
+          <div class="bon-head">MOINA – GOLDEN MOMENTS</div>
+          <div class="bon-sub">Crêpes-Anhänger · Kasse 1</div>
+          <hr>
+          <div class="bon-row"><span>2 Crêpe Nutella</span><span>9,00</span></div>
+          <div class="bon-row"><span>1 Kaffee</span><span>2,80</span></div>
+          <div class="bon-row"><span>1 Becherpfand</span><span>1,00</span></div>
+          <hr>
+          <div class="bon-row bon-sum"><span>SUMME EUR</span><span>12,80</span></div>
+          <div class="bon-row"><span>Karte (girocard)</span><span>12,80</span></div>
+          <hr>
+          <div class="bon-sub">Danke und guten Appetit!</div>
+        </div>
+        <div>
+          <p class="kicker">Warum NALLY</p>
+          <h2 id="h-warum">Vom Stand, für Stände</h2>
+          <p class="lead">NALLY läuft im Alltag am Crêpes-Anhänger von MOINA – Golden Moments. Was dort auf Märkten und Stadtfesten nicht funktioniert, kommt nicht in die App.</p>
+          <ul class="points">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg>
+              <div><h3>Pflichten eingebaut</h3><p>Beleg nach KassenSichV, Prüfprotokoll und DSFinV-K-Export gehören zum Kern – nicht zu einem Zusatzpaket.</p></div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><path d="M12 20h.01"/></svg>
+              <div><h3>Kein Netz? Kein Problem.</h3><p>Die Daten liegen auf dem Gerät. Auch auf der Wiese ohne Empfang wird weiter kassiert.</p></div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M9 18h6"/></svg>
+              <div><h3>Große Tasten, klare Farben</h3><p>Gebaut für Finger mit Handschuhen und Bildschirme in der Sonne – dunkel oder hell.</p></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Einstieg in drei Etappen -->
+    <section class="section" aria-labelledby="h-weg">
+      <div class="wrap">
+        <div class="head">
+          <p class="kicker">Der Weg zu NALLY</p>
+          <h2 id="h-weg">Vom ersten Gespräch zum ersten Bon</h2>
+        </div>
+        <div class="path">
+          <div class="stop"><div class="dot">1</div><h3>Sie melden sich</h3><p>Sie erzählen, was Sie verkaufen und wo. Wir sagen ehrlich, ob NALLY heute schon passt.</p></div>
+          <div class="stop"><div class="dot">2</div><h3>Artikel rein</h3><p>Preise, Warengruppen und Pfand anlegen – oder als CSV-Liste übernehmen. Drucker und Terminal verbinden.</p></div>
+          <div class="stop"><div class="dot">3</div><h3>Bon raus</h3><p>Verkaufen, abschließen, auswerten. Ihre Rückmeldung landet direkt bei den Entwicklern.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Für wen -->
+    <section class="section soft" aria-labelledby="h-wer" style="padding-block: 56px">
+      <div class="wrap">
+        <div class="head" style="margin-bottom: 24px">
+          <h2 id="h-wer">Für alle, die im Stehen verkaufen</h2>
+        </div>
+        <div class="fits">
+          <span>Food-Trucks</span><span>Marktstände</span><span>Imbisse</span><span>Cafés</span><span>Eisdielen</span><span>Hofläden</span><span>Vereinsfeste</span><span>Festivalstände</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Entwicklungsstand -->
+    <section class="section" id="stand" aria-labelledby="h-stand">
+      <div class="wrap state">
+        <div>
+          <p class="kicker">Entwicklungsstand</p>
+          <h2 id="h-stand">Ehrlich abgerechnet</h2>
+          <p class="lead">NALLY ist noch nicht allgemein erhältlich. Hier steht, was fertig ist – und was noch fehlt.</p>
+        </div>
+        <div class="bon" role="list" aria-label="Entwicklungsstand">
+          <div class="bon-head">NALLY · STAND 09/2026</div>
+          <hr>
+          <div class="bon-row" role="listitem"><span>Verkauf, Storno, Pfand</span><span class="mark ok">fertig</span></div>
+          <div class="bon-row" role="listitem"><span>Kassenbuch, Abschluss</span><span class="mark ok">fertig</span></div>
+          <div class="bon-row" role="listitem"><span>DSFinV-K-Export</span><span class="mark ok">fertig</span></div>
+          <div class="bon-row" role="listitem"><span>Bondruck LAN/WLAN</span><span class="mark ok">fertig</span></div>
+          <div class="bon-row" role="listitem"><span>Cloud-TSE</span><span class="mark wip">in Arbeit</span></div>
+          <div class="bon-row" role="listitem"><span>Server in Deutschland</span><span class="mark wip">in Arbeit</span></div>
+          <div class="bon-row" role="listitem"><span>Tap to Pay, iOS</span><span class="mark wip">geplant</span></div>
+          <hr>
+          <div class="bon-sub">Wird laufend aktualisiert</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section class="closing" id="kontakt" aria-labelledby="h-kontakt">
+      <div class="wrap closing-grid">
+        <div>
+          <h2 id="h-kontakt">Testen Sie NALLY an Ihrem Stand.</h2>
+          <p class="lead">Wir nehmen nur wenige Pilotbetriebe auf und richten jeden persönlich ein.</p>
+        </div>
+        <div class="closing-cta">
+          <a class="btn btn-accent" href="mailto:kontakt@nallypos.de?subject=Pilotbetrieb%20NALLY">Pilotbetrieb anfragen</a>
+          <small>kontakt@nallypos.de</small>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot-row">
+      <a class="logo" href="./"><img class="logo-mark" src="logo.svg" alt="" width="30" height="30">NALLY</a>
+      <span>© 2026 NALLY (in Gründung)</span>
+      <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
+    </div>
+  </footer>
+  <script>
+    // Reiter nach WAI-ARIA: Klick und Pfeiltasten
+    const tabs = [...document.querySelectorAll("[role=tab]")];
+    function zeige(tab) {
+      tabs.forEach(t => {
+        const an = t === tab;
+        t.setAttribute("aria-selected", an);
+        t.tabIndex = an ? 0 : -1;
+        document.getElementById(t.getAttribute("aria-controls")).hidden = !an;
+      });
+    }
+    tabs.forEach((t, i) => {
+      t.addEventListener("click", () => zeige(t));
+      t.addEventListener("keydown", e => {
+        const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+        if (!d) return;
+        const n = tabs[(i + d + tabs.length) % tabs.length];
+        zeige(n); n.focus();
+      });
+    });
+  </script>
+</body>
+</html>
