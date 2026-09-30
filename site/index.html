@@ -48,13 +48,14 @@
         </div>
 
         <div class="stage">
+          <div class="stage-in">
           <span class="float f1">Daten auf dem Gerät</span>
-          <span class="float f2">Bon per E-Mail</span>
+          <span class="float f2">Beleg per E-Mail</span>
           <span class="float f3">DSFinV-K-Export</span>
-          <div class="phone" role="img" aria-label="Kassenansicht der NALLY-App: Artikel werden angetippt, der Warenkorb füllt sich, bar bezahlt, der Bon kommt heraus">
-            <!-- Bon, der beim Bezahlen oben aus dem Gerät kommt (Animation) -->
+          <div class="phone" role="img" aria-label="Kassenansicht der NALLY-App: Artikel werden angetippt, der Warenkorb füllt sich, bar bezahlt, der Beleg geht per E-Mail an das Handy der Kundin">
+            <!-- Digitaler Beleg: steigt nach dem Bezahlen auf und wird wie durch einen Trichter zu Daten (Animation) -->
             <div class="phone-bon" aria-hidden="true">
-              <b>MUSTERSTAND</b>
+              <b>E-BELEG · MUSTERSTAND</b>
               <span>2 Crêpe Schoko 9,00</span>
               <span>1 Kaffee 2,80</span>
               <span>1 Becherpfand 1,00</span>
@@ -77,8 +78,22 @@
                 <div class="cart-sum"><span>Zu zahlen</span><span>12,80 €</span></div>
                 <div class="pay">Kassieren</div>
               </div>
-              <div class="paid"><span class="paid-check">✓</span><b>Bezahlt · bar</b><small>Bon wird gedruckt</small></div>
+              <div class="paid"><span class="paid-check">✓</span><b>Bezahlt · bar</b><small>Beleg wird per E-Mail gesendet</small></div>
             </div>
+          </div>
+          <!-- Nullen und Einsen auf dem Weg zum Handy der Kundin -->
+          <div class="bits" aria-hidden="true"><span>1</span><span>0</span><span>1</span><span>1</span><span>0</span><span>0</span><span>1</span><span>0</span><span>1</span><span>1</span></div>
+          <!-- Handy der Kundin: der Beleg landet im Posteingang -->
+          <div class="customer" aria-hidden="true">
+            <div class="c-screen">
+              <div class="c-toast">Neue E-Mail · Ihr Beleg</div>
+              <div class="c-head">Posteingang</div>
+              <div class="c-mail c-new"><b>Musterstand</b><span>Ihr Beleg · 12,80 €</span></div>
+              <div class="c-mail"><b>Stadtwerke</b><span>Ihre Abrechnung</span></div>
+              <div class="c-mail"><b>Sportverein</b><span>Training am Samstag</span></div>
+              <div class="c-mail"><b>Paketdienst</b><span>Zustellung heute</span></div>
+            </div>
+          </div>
           </div>
         </div>
       </div>

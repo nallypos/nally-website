@@ -108,17 +108,37 @@ h3 { font-size: 20px; letter-spacing: -.01em; line-height: 1.25; margin-bottom: 
 .proof-no { flex: none; font-weight: 800; color: var(--ink); font-size: 15px; padding: 4px 10px; border-radius: 8px; background: var(--accent-glow); }
 .intro-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
-/* Bühne mit Handy und Etiketten */
-.stage { position: relative; display: grid; place-items: center; padding: 60px 0 56px; }
+/* Bühne: Kassen-Handy, Handy der Kundin, Etiketten.
+   Die Anordnung richtet sich nach der Breite der Bühne (Container-Query):
+   schmal = ein Handy, Etiketten darunter; ab 420 px = zwei Handys mit Datenstrom. */
+.stage { container-type: inline-size; }
+.stage-in { position: relative; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 60px 0 20px; }
+.stage-in .phone { order: -1; margin-bottom: 12px; }
 .float {
-  position: absolute; z-index: 2; font-size: 14px; font-weight: 700;
+  position: static; z-index: 4; font-size: 14px; font-weight: 700;
   background: var(--bg); color: var(--ink); border: 1px solid var(--line); border-radius: 10px;
   padding: 8px 12px; box-shadow: 0 10px 24px rgba(15,23,42,.10); white-space: nowrap;
 }
 .float::before { content: "✓"; color: var(--accent-text); margin-right: 6px; }
-.f1 { top: 0; left: 0; }
-.f2 { top: 0; right: 0; }
-.f3 { bottom: 0; left: 50%; transform: translateX(-50%); }
+.bits, .customer { display: none; }
+
+@container (min-width: 420px) {
+  .stage-in { display: block; padding: 60px 0 56px; }
+  .stage-in .phone { width: min(290px, 56cqw); margin: 0; justify-self: start; }
+  .float { position: absolute; }
+  .f1 { top: 0; left: 0; }
+  .f2 { right: 0; bottom: calc(56px + min(160px, 30cqw) * 2.0556 + 14px); }
+  .f3 { bottom: 12px; left: calc(min(290px, 56cqw) / 2); transform: translateX(-50%); }
+  .customer { display: block; position: absolute; right: 0; bottom: 56px; width: min(160px, 30cqw); }
+  /* Strecke von der Oberkante des Kassen-Handys bis zur Oberkante des Kunden-Handys */
+  .bits {
+    display: block; position: absolute; z-index: 5; top: 60px;
+    left: calc(min(290px, 56cqw) / 2);
+    right: calc(min(160px, 30cqw) / 2);
+    height: calc((min(290px, 56cqw) - min(160px, 30cqw)) * 2.0556 - 6px);
+    pointer-events: none;
+  }
+}
 
 /* Kassenansicht auf dem Handy */
 .phone {
@@ -252,19 +272,11 @@ footer nav a:first-child { margin-left: 0; }
 .legal address { font-style: normal; }
 .todo { background: #fff3c4; color: #5a4300; padding: 0 4px; border-radius: 4px; }
 
-/* Bis 1200 px stehen die Etiketten unter dem Handy, sonst verdecken sie die Kassenansicht */
-@media (max-width: 1200px) {
-  .stage { display: flex; flex-wrap: wrap; justify-content: center; align-content: center; gap: 8px; padding-bottom: 20px; }
-  .stage .phone { order: -1; margin-bottom: 12px; flex-basis: 100%; max-width: 290px; }
-  .float { position: static; transform: none; }
-}
-
 /* Schmale Bildschirme */
 @media (max-width: 960px) {
   .intro-grid, .why, .state, .closing-grid, .devices, .panel { grid-template-columns: minmax(0, 1fr); }
   .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .closing-cta { justify-self: start; text-align: left; }
-  .stage .phone { max-width: 250px; }
   .device-art { min-height: 0; }
 }
 @media (max-width: 720px) {
@@ -280,11 +292,11 @@ footer nav a:first-child { margin-left: 0; }
 
 /* ------------------------------------------------------------------
    Animationen (nur CSS, verträglich mit der Content-Security-Policy).
-   Ein Durchlauf „Verkauf“ dauert 12 s: tippen, Warenkorb, kassieren,
-   bezahlt, Bon kommt heraus. Bei „Bewegung reduzieren“ steht alles still
+   Ein Durchlauf „Verkauf“ dauert 14 s: tippen, Warenkorb, kassieren,
+   bezahlt, E-Beleg wird zu Daten und landet im Posteingang der Kundin. Bei „Bewegung reduzieren“ steht alles still
    im fertigen Zustand (siehe Block am Ende).
    ------------------------------------------------------------------ */
-:root { --sale: 12s; }
+:root { --sale: 14s; }
 
 .phone { isolation: isolate; }
 .screen { position: relative; z-index: 1; }
@@ -351,10 +363,73 @@ footer nav a:first-child { margin-left: 0; }
 }
 @keyframes show-paid { 0%, 50% { opacity: 0; } 54%, 84% { opacity: 1; } 90%, 100% { opacity: 0; } }
 @keyframes pop-check { 0%, 51% { transform: scale(.4); } 56% { transform: scale(1.12); } 60%, 100% { transform: scale(1); } }
+/* E-Beleg: steigt auf, verengt sich zum Trichter, verschwindet in der Spitze */
 @keyframes phone-bon {
-  0%, 54%  { transform: translateY(0); opacity: 1; }
-  72%, 86% { transform: translateY(-118px); opacity: 1; }
-  94%, 100% { transform: translateY(-118px) translateX(40px) rotate(8deg); opacity: 0; }
+  0%, 54%   { transform: translateY(0); opacity: 1; background: var(--paper); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  62%       { transform: translateY(-118px); opacity: 1; background: var(--paper); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  67%       { transform: translateY(-118px) scaleY(.85); opacity: 1; background: #bae6fd; clip-path: polygon(0 0, 100% 0, 60% 100%, 40% 100%); }
+  72%       { transform: translateY(-108px) scale(.12, .5); opacity: 0; background: #38bdf8; clip-path: polygon(0 0, 100% 0, 52% 100%, 48% 100%); }
+  73%, 100% { transform: translateY(0); opacity: 0; background: var(--paper); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+}
+
+/* Nullen und Einsen fliegen im Bogen zum Handy der Kundin */
+.phone-bon { transform-origin: 50% 100%; }
+.bits span {
+  position: absolute; left: 0; top: 0; opacity: 0;
+  font: 800 15px/1 var(--mono); color: var(--accent-text);
+  text-shadow: 0 0 8px var(--accent-glow);
+  animation: bit var(--sale) linear infinite;
+}
+.bits span:nth-child(2)  { animation-delay: .1s; }
+.bits span:nth-child(3)  { animation-delay: .2s; }
+.bits span:nth-child(4)  { animation-delay: .3s; }
+.bits span:nth-child(5)  { animation-delay: .4s; }
+.bits span:nth-child(6)  { animation-delay: .5s; }
+.bits span:nth-child(7)  { animation-delay: .6s; }
+.bits span:nth-child(8)  { animation-delay: .7s; }
+.bits span:nth-child(9)  { animation-delay: .8s; }
+.bits span:nth-child(10) { animation-delay: .9s; }
+.bits span:nth-child(even) { color: var(--accent); }
+@keyframes bit {
+  0%, 69% { left: 0;    top: 0;    opacity: 0; transform: scale(.5); }
+  70%     { left: 0;    top: 0;    opacity: 1; transform: scale(.8); }
+  74%     { left: 35%;  top: -6%;  opacity: 1; transform: scale(1.1); }
+  78%     { left: 75%;  top: 45%;  opacity: 1; transform: scale(1); }
+  80%     { left: 100%; top: 100%; opacity: 0; transform: scale(.6); }
+  100%    { left: 100%; top: 100%; opacity: 0; }
+}
+
+/* Handy der Kundin mit Posteingang */
+.customer {
+  aspect-ratio: 9 / 18.5; background: #020617; border-radius: 26px; padding: 7px;
+  box-shadow: 0 0 0 2px #334155, 0 24px 60px rgba(15,23,42,.22);
+}
+.c-screen {
+  position: relative; height: 100%; border-radius: 20px; overflow: hidden;
+  background: #f8fafc; color: #0f172a; font-size: 10px; line-height: 1.35;
+  display: flex; flex-direction: column;
+}
+.c-head { padding: 14px 10px 6px; font-weight: 800; font-size: 13px; }
+.c-mail { display: flex; flex-direction: column; padding: 7px 10px; border-top: 1px solid #e2e8f0; }
+.c-mail b { font-size: 10.5px; }
+.c-mail span { color: #64748b; }
+.c-new { background: #e0f2fe; overflow: hidden; animation: c-new var(--sale) infinite; }
+.c-new b::before { content: "● "; color: #0ea5e9; }
+.c-toast {
+  position: absolute; z-index: 2; left: 6px; right: 6px; top: 6px;
+  padding: 6px 8px; border-radius: 10px; background: #0f172a; color: #f1f5f9;
+  font-weight: 700; font-size: 9.5px; text-align: center;
+  transform: translateY(-140%); animation: c-toast var(--sale) infinite;
+}
+@keyframes c-new {
+  0%, 80%   { max-height: 0; padding-block: 0; opacity: 0; border-top-width: 0; }
+  84%, 96%  { max-height: 60px; padding-block: 7px; opacity: 1; border-top-width: 1px; }
+  100%      { max-height: 0; padding-block: 0; opacity: 0; border-top-width: 0; }
+}
+@keyframes c-toast {
+  0%, 79%   { transform: translateY(-140%); }
+  82%, 90%  { transform: translateY(0); }
+  94%, 100% { transform: translateY(-140%); }
 }
 
 /* Geräte-Zeichnungen */
@@ -411,7 +486,7 @@ footer nav a:first-child { margin-left: 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .paid { display: none; }
-  .phone-bon { display: none; }
+  .phone-bon, .bits { display: none; }
   .cup { transform: translate(150px, 38px); }
   .cup-minus { opacity: 1; }
 }
