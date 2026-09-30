@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Datenschutz – NALLY</title>
   <meta name="robots" content="noindex">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -17,7 +19,7 @@
   </header>
 
   <main class="wrap legal">
-    <h1>Datenschutzerklärung</h1>
+    <h1>Datenschutz&shy;erklärung</h1>
     <p>Diese Erklärung gilt für die Website nallypos.de. Für die NALLY-App veröffentlichen wir eine eigene Datenschutzerklärung, sobald die App allgemein erhältlich ist.</p>
 
     <h2>1. Verantwortlicher</h2>
@@ -54,9 +56,10 @@
   </main>
 
   <footer>
-    <div class="wrap">
-      <div class="foot-row"><span>© 2026 NALLY (in Gründung)</span>
-      <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span></div>
+    <div class="wrap foot-row">
+      <a class="logo" href="./"><img class="logo-mark" src="logo.svg" alt="" width="30" height="30">NALLY</a>
+      <span>© 2026 NALLY (in Gründung)</span>
+      <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
     </div>
   </footer>
 </body>

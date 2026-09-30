@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>NALLY – Die Kassen-App für Food-Trucks, Marktstände und Imbisse</title>
   <meta name="description" content="NALLY ist eine Kassen-App für Food-Trucks, Marktstände, Imbisse und Cafés: schnell kassieren, Pfand, Kassenabschluss und DSFinV-K-Export. Die Anbindung einer zertifizierten TSE ist in Arbeit.">
   <!-- Bis zur Freigabe nicht in Suchmaschinen aufnehmen. Vor dem Start entfernen. -->
@@ -88,7 +90,7 @@
           <button role="tab" id="t-abschluss" aria-controls="p-abschluss" aria-selected="false" tabindex="-1">Abschluss</button>
         </div>
 
-        <div class="panel" role="tabpanel" id="p-verkauf" aria-labelledby="t-verkauf">
+        <div class="panel" role="tabpanel" id="p-verkauf" aria-labelledby="t-verkauf" tabindex="0">
           <div>
             <h3>Wenige Tipps pro Bestellung</h3>
             <p>Große Kacheln nach Warengruppen, Gewichtsware und freie Beträge. Bestellungen von Gruppen parken Sie und schließen sie später ab. Bezahlt wird bar oder per Karte an einem Terminal mit ZVT-Schnittstelle (Test am Terminal steht noch aus).</p>
@@ -102,7 +104,7 @@
           </div>
         </div>
 
-        <div class="panel" role="tabpanel" id="p-pfand" aria-labelledby="t-pfand" hidden>
+        <div class="panel" role="tabpanel" id="p-pfand" aria-labelledby="t-pfand" tabindex="0">
           <div>
             <h3>Pfand, das nicht mit dem Umsatz verschwimmt</h3>
             <p>Beliebig viele Pfandartikel mit eigener Farbe im Warenkorb, Rücknahme mit einem Tipp. Storno und Teilstorno mit anteiliger Auszahlung – nachvollziehbar im Protokoll.</p>
@@ -116,7 +118,7 @@
           </div>
         </div>
 
-        <div class="panel" role="tabpanel" id="p-abschluss" aria-labelledby="t-abschluss" hidden>
+        <div class="panel" role="tabpanel" id="p-abschluss" aria-labelledby="t-abschluss" tabindex="0">
           <div>
             <h3>Der Abend gehört wieder Ihnen</h3>
             <p>Kassensturz, Z-Bericht und Kassenbuch mit Einlage und Entnahme. Für die Buchhaltung gibt es den Buchungsstapel im DATEV- und Lexware-Format, dazu den DSFinV-K-Export (gebaut, Prüfung mit einem Prüfwerkzeug steht noch aus).</p>
@@ -133,7 +135,7 @@
     </section>
 
     <!-- Geräte -->
-    <section class="section" id="geraete" aria-labelledby="h-geraete" style="padding-top: 0">
+    <section class="section pt-0" id="geraete" aria-labelledby="h-geraete">
       <div class="wrap">
         <div class="head center">
           <p class="kicker">Geräte</p>
@@ -236,7 +238,7 @@
     </section>
 
     <!-- Funktionen als Karten -->
-    <section class="section soft" aria-labelledby="h-alles" style="padding-top: 72px">
+    <section class="section soft pt-72" aria-labelledby="h-alles">
       <div class="wrap">
         <div class="head">
           <p class="kicker">Funktionen</p>
@@ -256,7 +258,7 @@
     <!-- Warum NALLY -->
     <section class="section soft" id="warum" aria-labelledby="h-warum">
       <div class="wrap why">
-        <div class="bon" aria-hidden="true">
+        <div class="bon-wrap"><div class="bon" aria-hidden="true">
           <div class="bon-head">MUSTERSTAND</div>
           <div class="bon-sub">Beispiel, gekürzt · Kasse 1</div>
           <hr>
@@ -268,12 +270,12 @@
           <div class="bon-row"><span>Karte (girocard)</span><span>12,80</span></div>
           <hr>
           <div class="bon-sub">Danke und guten Appetit!</div>
-        </div>
+        </div></div>
         <div>
           <p class="kicker">Warum NALLY</p>
           <h2 id="h-warum">Vom Stand, für Stände</h2>
           <p class="lead">NALLY ist am Crêpes-Anhänger von MOINA – Golden Moments entstanden, dem Betrieb unseres Gründers Mehmet Gelgel. Was im Verkauf am Stand nicht funktioniert, kommt nicht in die App.</p>
-          <ul class="points">
+          <ul class="points" role="list">
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg>
               <div><h3>Für die Pflichten gebaut</h3><p>Belegaufbau nach § 6 KassenSichV, Prüfprotokoll und DSFinV-K-Export gehören zum Kern – nicht zu einem Zusatzpaket. Die Anbindung einer zertifizierten TSE ist in Arbeit. Bis dahin sind Belege nicht abgesichert (siehe <a href="#stand">Entwicklungsstand</a>).</p></div>
@@ -307,9 +309,9 @@
     </section>
 
     <!-- Für wen -->
-    <section class="section soft" aria-labelledby="h-wer" style="padding-block: 56px">
+    <section class="section soft py-56" aria-labelledby="h-wer">
       <div class="wrap">
-        <div class="head" style="margin-bottom: 24px">
+        <div class="head mb-24">
           <h2 id="h-wer">Für alle, die im Stehen verkaufen</h2>
         </div>
         <div class="fits">
@@ -326,10 +328,10 @@
           <h2 id="h-stand">Ehrlich abgerechnet</h2>
           <p class="lead">NALLY ist noch nicht allgemein erhältlich. Hier steht, was fertig ist – und was noch fehlt. Als Kasse im Echtbetrieb darf NALLY erst mit angebundener, zertifizierter TSE laufen.</p>
         </div>
-        <div class="bon">
+        <div class="bon-wrap"><div class="bon">
           <div class="bon-head" id="h-bon">NALLY · STAND 09/2026</div>
           <hr>
-          <ul class="bon-list" aria-labelledby="h-bon">
+          <ul class="bon-list" role="list" aria-labelledby="h-bon">
             <li class="bon-row"><span>Verkauf, Storno, Pfand</span><span class="mark ok">fertig</span></li>
             <li class="bon-row"><span>Kassenbuch, Abschluss</span><span class="mark ok">fertig</span></li>
             <li class="bon-row"><span>Bondruck LAN/WLAN</span><span class="mark ok">fertig</span></li>
@@ -341,7 +343,7 @@
           </ul>
           <hr>
           <div class="bon-sub">Wird laufend aktualisiert</div>
-        </div>
+        </div></div>
       </div>
     </section>
 
@@ -367,30 +369,6 @@
       <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
     </div>
   </footer>
-  <script>
-    // Reiter nach WAI-ARIA: Klick und Pfeiltasten
-    const tabs = [...document.querySelectorAll("[role=tab]")];
-    function zeige(tab) {
-      tabs.forEach(t => {
-        const an = t === tab;
-        t.setAttribute("aria-selected", an);
-        t.tabIndex = an ? 0 : -1;
-        document.getElementById(t.getAttribute("aria-controls")).hidden = !an;
-      });
-    }
-    tabs.forEach((t, i) => {
-      t.addEventListener("click", () => zeige(t));
-      t.addEventListener("keydown", e => {
-        let n;
-        if (e.key === "ArrowRight") n = tabs[(i + 1) % tabs.length];
-        else if (e.key === "ArrowLeft") n = tabs[(i - 1 + tabs.length) % tabs.length];
-        else if (e.key === "Home") n = tabs[0];
-        else if (e.key === "End") n = tabs[tabs.length - 1];
-        else return;
-        e.preventDefault();
-        zeige(n); n.focus();
-      });
-    });
-  </script>
+  <script src="tabs.js" defer></script>
 </body>
 </html>
