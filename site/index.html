@@ -120,8 +120,22 @@
             <p class="result">Jeder Storno mit Name und Uhrzeit</p>
           </div>
           <div class="mini" aria-hidden="true">
+            <!-- Ein Becher wird über die Theke zurückgegeben (Animation) -->
+            <svg class="cup-scene" viewBox="0 0 300 96">
+              <rect x="0" y="80" width="300" height="6" rx="3" fill="#334155"/>
+              <g class="cup-box">
+                <rect x="14" y="48" width="78" height="32" rx="6" fill="#263248" stroke="#475569"/>
+                <text x="53" y="69" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#a78bfa">Rücknahme</text>
+              </g>
+              <g class="cup">
+                <path d="M0 0h30l-4 40H4z" fill="#f1f5f9"/>
+                <rect x="-3" y="-5" width="36" height="7" rx="3" fill="#a78bfa"/>
+                <rect x="5" y="14" width="20" height="10" rx="2" fill="#a78bfa" opacity=".55"/>
+              </g>
+              <text class="cup-minus" x="53" y="38" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="800" fill="#a78bfa">−1,00 €</text>
+            </svg>
             <div class="mini-row"><span>Becherpfand</span><span class="dep-t">+1,00</span></div>
-            <div class="mini-row"><span>Pfand-Rücknahme</span><span class="dep-t">−2,00</span></div>
+            <div class="mini-row"><span>Pfand-Rücknahme</span><span class="dep-t">−1,00</span></div>
             <div class="mini-row"><span>Teilstorno Bon 0412</span><span>−3,00</span></div>
             <div class="mini-big">Protokoll ✓</div>
           </div>
@@ -137,7 +151,8 @@
             <div class="mini-row"><span>Umsatz bar</span><span>612,40</span></div>
             <div class="mini-row"><span>Umsatz Karte</span><span>845,10</span></div>
             <div class="mini-row"><span>Pfand saldiert</span><span class="dep-t">38,00</span></div>
-            <div class="mini-big">Z-Bericht 0093</div>
+            <div class="mini-big"><span class="count" data-count="1457.50">1.457,50</span> €</div>
+            <div class="mini-cap">Tagesumsatz · Z-Bericht 0093</div>
           </div>
         </div>
       </div>
@@ -385,5 +400,6 @@
     </div>
   </footer>
   <script src="tabs.js" defer></script>
+  <script src="effects.js" defer></script>
 </body>
 </html>
