@@ -216,10 +216,11 @@ h3 { font-size: 20px; letter-spacing: -.01em; line-height: 1.25; margin-bottom: 
 .card p { color: var(--muted); margin: 0 0 16px; }
 
 /* Ergebniszeile mit Häkchen (nach .panel p und .card p, damit sie gewinnt) */
-.panel .result, .card .result { font-size: 15px; font-weight: 700; color: var(--ink); margin: 0; }
+.panel .result, .card .result { font-size: 15px; font-weight: 700; color: var(--ink); margin: 0; display: grid; grid-template-columns: auto 1fr; column-gap: 8px; align-items: start; }
 .card .result { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); }
 @supports (grid-template-rows: subgrid) { .card .result { margin-top: 0; } }
-.result::before { content: "✓"; color: var(--accent-text); margin-right: 8px; }
+/* Häkchen in eigener Spalte: eine zweite Zeile beginnt bündig unter dem Text (hängender Einzug) */
+.result::before { content: "✓"; color: var(--accent-text); }
 
 /* Geräte */
 .devices { display: grid; grid-template-columns: .8fr 1.2fr; gap: 18px; }
