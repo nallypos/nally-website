@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <title>NALLY – Die Kassen-App für Food-Trucks, Marktstände und Imbisse</title>
-  <meta name="description" content="NALLY ist eine Kassen-App in Entwicklung für Food-Trucks, Marktstände, Imbisse und Cafés: schnell kassieren, Pfand, Kassenabschluss, DSFinV-K-Export. Als Kasse einsetzbar erst mit zertifizierter TSE, die Anbindung ist in Arbeit.">
+  <title>NALLY – Die Kassen-App für kleine Betriebe</title>
+  <meta name="description" content="NALLY ist eine Kassen-App in Entwicklung für kleine Betriebe – vom Dönerladen über den Friseursalon bis zum Marktstand: schnell kassieren, Pfand, Kassenabschluss, DSFinV-K-Export. Als Kasse einsetzbar erst mit zertifizierter TSE, die Anbindung ist in Arbeit.">
   <!-- Bis zur Freigabe nicht in Suchmaschinen aufnehmen. Vor dem Start entfernen. -->
   <meta name="robots" content="noindex">
   <link rel="canonical" href="https://nallypos.de/">
@@ -20,6 +20,7 @@
     <div class="wrap top-inner">
       <a class="logo" href="./" aria-label="NALLY Startseite"><img class="logo-mark" src="logo.svg" alt="" width="30" height="30">NALLY</a>
       <nav class="menu" aria-label="Hauptnavigation">
+        <a href="#branchen">Branchen</a>
         <a href="#funktionen">Funktionen</a>
         <a href="#geraete">Geräte</a>
         <a href="#warum">Warum NALLY</a>
@@ -36,14 +37,14 @@
         <div class="intro-card">
           <p class="label">Kassen-App · in Entwicklung</p>
           <h1>Die Schlange ist lang. <span class="hl">Die Kasse ist schnell.</span></h1>
-          <p class="lead">NALLY ist die Kassen-App für Food-Trucks, Marktstände, Imbisse und kleine Cafés. Entstanden an einem Crêpes-Anhänger – für alle, die im Stehen verkaufen.</p>
+          <p class="lead">NALLY ist die Kassen-App für kleine Betriebe – vom Dönerladen über den Friseursalon bis zum Marktstand. Entstanden an einem Crêpes-Anhänger, gebaut für alle, die schnell und einfach kassieren wollen.</p>
           <div class="intro-proof">
             <span class="proof-no">Herkunft</span>
             <span>entstanden am Crêpes-Anhänger von MOINA – Golden Moments, dem Schwesterbetrieb von NALLY (gleicher Inhaber)</span>
           </div>
           <div class="intro-actions">
             <a class="btn btn-ink" href="#kontakt">Als Pilotbetrieb vormerken</a>
-            <a class="btn btn-line" href="#funktionen">Was NALLY kann</a>
+            <a class="btn btn-line" href="#branchen">Für welche Branchen?</a>
           </div>
         </div>
 
@@ -99,8 +100,53 @@
       </div>
     </div>
 
+    <!-- Branchen: jede Aussage ist durch die App gedeckt (Startkataloge core/branchen.ts, Verkaufsart, tip.ts, kitchen.ts, Einheiten kg/l/h) -->
+    <section class="section" id="branchen" aria-labelledby="h-branchen">
+      <div class="wrap">
+        <div class="head center">
+          <p class="kicker">Branchen</p>
+          <h2 id="h-branchen">Eine Kasse für viele Branchen</h2>
+          <p class="lead">Vom Dönerladen über den Friseursalon bis zum Hofladen: Bei der Einrichtung wählen Sie einen passenden Startkatalog mit Warengruppen und Artikeln – oder beginnen mit einer leeren Kasse.</p>
+        </div>
+        <ul class="branches" role="list">
+          <li class="branch">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+            <h3>Imbiss &amp; Dönerladen</h3>
+            <p>Außer Haus oder vor Ort – mit eigenem Steuersatz je Artikel. Arbeitszettel für die Zubereitung, Pfand für Becher und Flaschen.</p>
+          </li>
+          <li class="branch">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg>
+            <h3>Friseursalon</h3>
+            <p>Leistungen mit festem oder freiem Preis, Trinkgeld getrennt nach Personal oder Betrieb, Umsatz je Mitarbeiterin und Mitarbeiter.</p>
+          </li>
+          <li class="branch">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M16 11h2a2 2 0 0 1 0 4h-2"/><path d="M8 3v3M12 3v3"/></svg>
+            <h3>Bäckerei &amp; Café</h3>
+            <p>Stück- und Gewichtsware, schneller Verkauf an der Theke – vor Ort oder zum Mitnehmen.</p>
+          </li>
+          <li class="branch">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10h18l-2 10H5z"/><path d="m8 10 4-6 4 6"/><path d="M9 14v3M15 14v3"/></svg>
+            <h3>Hofladen &amp; Marktstand</h3>
+            <p>Ware nach Kilo oder Liter, freie Beträge, Pfand – auf dem Smartphone auch ohne festen Platz.</p>
+          </li>
+          <li class="branch">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2h4v4l2 3v12a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V9l2-3z"/><path d="M8 13h8"/></svg>
+            <h3>Getränkehandel &amp; Kiosk</h3>
+            <p>Strichcodes scannen, Pfand und Rücknahme, Bestand mit Wareneingang aus der Lieferantenrechnung.</p>
+          </li>
+          <li class="branch">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+            <h3>Praxis &amp; Studio</h3>
+            <p>Zum Beispiel Physiotherapie oder Kosmetik: Leistungen nach Zeit abrechnen, Steuersatz je Leistung einstellbar.</p>
+          </li>
+        </ul>
+        <p class="also">Außerdem zum Beispiel: Food-Trucks, Eisdielen, Blumenläden, Boutiquen, Nagelstudios, Vereinsfeste.</p>
+        <p class="not-yet"><strong>Noch nicht dabei:</strong> Gastronomie mit Tischbedienung (Tische, getrennte Rechnungen).</p>
+      </div>
+    </section>
+
     <!-- Ein Tag mit NALLY: Reiter -->
-    <section class="section" id="funktionen" aria-labelledby="h-funktionen">
+    <section class="section soft" id="funktionen" aria-labelledby="h-funktionen">
       <div class="wrap">
         <div class="head center">
           <p class="kicker">Ein Verkaufstag mit NALLY</p>
@@ -174,7 +220,7 @@
     </section>
 
     <!-- Geräte -->
-    <section class="section pt-0" id="geraete" aria-labelledby="h-geraete">
+    <section class="section" id="geraete" aria-labelledby="h-geraete">
       <div class="wrap">
         <div class="head center">
           <p class="kicker">Geräte</p>
@@ -275,7 +321,7 @@
             <figcaption>
               <span class="tag-soon">gebaut, Gerätetest ausstehend</span>
               <h3>Kassenplatz an der Theke</h3>
-              <p>Android-Tablet oder Smartphone, Bondrucker im Netzwerk und eine Geldschublade am Drucker, die sich bei Barzahlung öffnen kann (einstellbar). Für Imbiss, Café und Hofladen.</p>
+              <p>Android-Tablet oder Smartphone, Bondrucker im Netzwerk und eine Geldschublade am Drucker, die sich bei Barzahlung öffnen kann (einstellbar). Für Dönerladen, Salon, Café und Laden.</p>
             </figcaption>
           </figure>
         </div>
@@ -318,8 +364,8 @@
         </div></div>
         <div>
           <p class="kicker">Warum NALLY</p>
-          <h2 id="h-warum">Vom Stand, für Stände</h2>
-          <p class="lead">NALLY ist am Crêpes-Anhänger von MOINA – Golden Moments entstanden, dem Betrieb unseres Gründers Mehmet Gelgel. Was am Stand nicht funktioniert, kommt nicht in die App.</p>
+          <h2 id="h-warum">Am Stand entstanden, für jeden Tresen gebaut</h2>
+          <p class="lead">NALLY ist am Crêpes-Anhänger von MOINA – Golden Moments entstanden, dem Betrieb unseres Gründers Mehmet Gelgel. Was im Alltag eines kleinen Betriebs nicht funktioniert, kommt nicht in die App – ob am Marktstand, im Salon oder im Dönerladen.</p>
           <ul class="points" role="list">
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg>
@@ -331,7 +377,7 @@
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M9 18h6"/></svg>
-              <div><h3>Große Tasten, klare Farben</h3><p>Große Kacheln und Schaltflächen für schnelles Tippen am Stand, dunkle und helle Darstellung.</p></div>
+              <div><h3>Große Tasten, klare Farben</h3><p>Große Kacheln und Schaltflächen für schnelles Tippen am Tresen, dunkle und helle Darstellung.</p></div>
             </li>
           </ul>
         </div>
@@ -349,18 +395,6 @@
           <div class="stop"><div class="dot">1</div><h3>Sie melden sich</h3><p>Sie erzählen, was Sie verkaufen und wo. Wir nehmen Sie auf die Liste der Pilotbetriebe und sagen ehrlich, ab wann NALLY zu Ihnen passt.</p></div>
           <div class="stop"><div class="dot">2</div><h3>Artikel rein</h3><p>Preise, Warengruppen und Pfand anlegen – oder als CSV-Liste übernehmen. Drucker und Terminal verbinden.</p></div>
           <div class="stop"><div class="dot">3</div><h3>Bon raus</h3><p>Sind die zertifizierte TSE angebunden und die übrigen Voraussetzungen für den Kassenbetrieb erfüllt, starten wir gemeinsam den Echtbetrieb. Ihre Kasse melden Sie dann innerhalb eines Monats Ihrem Finanzamt; NALLY zeigt Ihnen die Angaben dafür. Ihre Rückmeldung landet direkt bei den Entwicklern.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Für wen -->
-    <section class="section soft py-56" aria-labelledby="h-wer">
-      <div class="wrap">
-        <div class="head mb-24">
-          <h2 id="h-wer">Für alle, die im Stehen verkaufen</h2>
-        </div>
-        <div class="fits">
-          <span>Food-Trucks</span><span>Marktstände</span><span>Imbisse</span><span>Cafés</span><span>Eisdielen</span><span>Hofläden</span><span>Vereinsfeste</span><span>Festivalstände</span>
         </div>
       </div>
     </section>

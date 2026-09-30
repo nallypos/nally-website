@@ -64,10 +64,7 @@ h3 { font-size: 20px; letter-spacing: -.01em; line-height: 1.25; margin-bottom: 
 .center .lead { margin-left: auto; margin-right: auto; }
 
 /* Abstands-Hilfen (statt Inline-Styles, wegen Content-Security-Policy) */
-.pt-0 { padding-top: 0; }
 .pt-72 { padding-top: 72px; }
-.py-56 { padding-block: 56px; }
-.mb-24 { margin-bottom: 24px; }
 
 /* Buttons */
 .btn {
@@ -200,6 +197,14 @@ h3 { font-size: 20px; letter-spacing: -.01em; line-height: 1.25; margin-bottom: 
 .pill-s.ok { background: #14532d; color: #bbf7d0; }
 .dep-t { color: #a78bfa; font-weight: 700; }
 
+/* Branchen */
+.branches { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.branch { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; box-shadow: 0 10px 30px rgba(15,23,42,.05); }
+.branch svg { width: 40px; height: 40px; padding: 8px; border-radius: 12px; color: var(--accent-text); background: var(--accent-glow); margin-bottom: 14px; }
+.branch p { margin: 0; color: var(--muted); }
+.also { margin: 28px 0 0; text-align: center; color: var(--muted); }
+.not-yet { margin: 8px auto 0; max-width: 60ch; text-align: center; font-size: 15px; color: var(--muted); }
+
 /* Karten */
 .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .card { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; }
@@ -240,9 +245,6 @@ h3 { font-size: 20px; letter-spacing: -.01em; line-height: 1.25; margin-bottom: 
 .stop .dot { width: 46px; height: 46px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); display: grid; place-items: center; font-family: var(--mono); font-weight: 700; color: var(--accent-text); margin-bottom: 18px; position: relative; }
 .stop p { margin: 0; color: var(--muted); }
 
-/* Für wen */
-.fits { display: flex; flex-wrap: wrap; gap: 10px; }
-.fits span { border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font-weight: 600; background: var(--bg); }
 
 /* Entwicklungsstand als Bon */
 .state { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
@@ -275,7 +277,7 @@ footer nav a:first-child { margin-left: 0; }
 /* Schmale Bildschirme */
 @media (max-width: 960px) {
   .intro-grid, .why, .state, .closing-grid, .devices, .panel { grid-template-columns: minmax(0, 1fr); }
-  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cards, .branches { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .closing-cta { justify-self: start; text-align: left; }
   .device-art { min-height: 0; }
 }
@@ -283,7 +285,7 @@ footer nav a:first-child { margin-left: 0; }
   .menu a:not(.btn) { display: none; }
   .path { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .path::before { display: none; }
-  .cards { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .cards, .branches { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   .tabs button { font-size: 14px; padding: 10px 8px; }
   .float { font-size: 12px; padding: 6px 9px; }
   .intro-actions .btn { width: 100%; }
@@ -452,7 +454,7 @@ footer nav a:first-child { margin-left: 0; }
 
 /* Beim Scrollen hereingleiten (nur Browser mit Scroll-Timelines; sonst sofort sichtbar) */
 @supports (animation-timeline: view()) {
-  .card, .device, .stop, .fits span, .points li, .state .bon-wrap, .head {
+  .card, .device, .stop, .branch, .points li, .state .bon-wrap, .head {
     animation: rise linear both;
     animation-timeline: view();
     animation-range: entry 0% entry 40%;
