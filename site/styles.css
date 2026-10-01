@@ -106,25 +106,30 @@ h3 { font-size: 20px; letter-spacing: -.01em; line-height: 1.25; margin-bottom: 
   padding: 8px 12px; box-shadow: 0 10px 24px rgba(15,23,42,.10); white-space: nowrap;
 }
 .float::before { content: "✓"; color: var(--accent-text); margin-right: 6px; }
-.bits, .customer { display: none; }
+/* Unter 420 px Bühnenbreite unsichtbar, aber nicht entfernt (display: none würde die Animationen beim
+   Drehen/Verbreitern neu starten und sie gegenüber dem Kassen-Handy aus dem Takt bringen) */
+.bits, .customer { position: absolute; visibility: hidden; width: 0; height: 0; overflow: hidden; pointer-events: none; }
 
 /* --w = Breite Kassen-Handy, --c = Breite Kunden-Handy, --co = Abstand des Kunden-Handys vom rechten Rand,
-   damit das Etikett (ca. 190 px breit) mittig darunter passt; 2.0556 = Seitenverhältnis 18,5 : 9 */
+   damit das Etikett (ca. 150 px breit) mittig darunter passt; 2.0556 = Seitenverhältnis 18,5 : 9.
+   Hinweis: cqw in diesen Variablen wird erst am Verwendungsort aufgelöst (gegen den Container .stage) –
+   nur in Elementen verwenden, deren nächster Container .stage ist. */
 @container (min-width: 420px) {
-  .stage-in { --w: min(220px, 50cqw); --c: min(120px, 26cqw); --co: max(0px, calc((190px - var(--c)) / 2)); display: block; padding: 44px 0 50px; }
-  .stage-in .phone { width: var(--w); margin: 0; justify-self: start; }
+  .stage-in { --w: min(220px, 50cqw); --c: min(120px, 26cqw); --co: max(0px, calc((160px - var(--c)) / 2)); display: block; padding: 44px 0 50px; }
+  .stage-in .phone { width: var(--w); margin: 0; }
   .float { position: absolute; }
   /* Etiketten unter den Handys, damit oben nichts die Animation verdeckt */
   .f2 { bottom: 0; right: calc(var(--co) + var(--c) / 2); transform: translateX(50%); }
   .f3 { bottom: 0; left: calc(var(--w) / 2); transform: translateX(-50%); }
-  .customer { display: block; position: absolute; right: var(--co); bottom: 50px; width: var(--c); }
+  .customer { visibility: visible; overflow: visible; height: auto; right: var(--co); bottom: 50px; width: var(--c); }
   /* Strecke von der Oberkante des Kassen-Handys bis zur Oberkante des Kunden-Handys */
   .bits {
-    display: block; position: absolute; z-index: 5; top: 44px;
+    visibility: visible; overflow: visible; width: auto; z-index: 5;
+    top: 44px; /* = Abstand oben in .stage-in, also Oberkante des Kassen-Handys */
+    container-type: size; /* Bits bewegen sich per transform in cqw/cqh dieser Strecke */
     left: calc(var(--w) / 2);
     right: calc(var(--co) + var(--c) / 2);
     height: calc((var(--w) - var(--c)) * 2.0556 - 6px);
-    pointer-events: none;
   }
 }
 /* Niedrige Bildschirme (z. B. Laptop 1366 × 768): kleinere Handys und engere Abstände, damit der nächste Abschnitt ins Bild ragt */
@@ -142,7 +147,7 @@ h3 { font-size: 20px; letter-spacing: -.01em; line-height: 1.25; margin-bottom: 
 /* Kassenansicht auf dem Handy */
 /* Die Kassenansicht skaliert mit der Breite des Handys (cqw = Prozent der Handy-Breite) */
 .phone {
-  justify-self: center; position: relative; container-type: inline-size;
+  position: relative; container-type: inline-size;
   width: min(290px, 100%); aspect-ratio: 9 / 18.5;
   background: #020617; border-radius: 40px; padding: 11px;
   box-shadow: 0 0 0 2px #334155, 0 30px 80px rgba(56,189,248,.18);
@@ -153,8 +158,6 @@ h3 { font-size: 20px; letter-spacing: -.01em; line-height: 1.25; margin-bottom: 
 .tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(5px, 2.8cqw, 8px); padding: 0 clamp(7px, 4.1cqw, 12px); }
 .tile { background: #263248; border-radius: 12px; padding: clamp(7px, 4.1cqw, 12px) clamp(6px, 3.4cqw, 10px); font-weight: 700; }
 .tile span { display: block; color: #94a3b8; font-weight: 600; font-size: clamp(8px, 4.1cqw, 12px); }
-.tile.on { background: #38bdf8; color: #0f172a; }
-.tile.on span { color: #0f3b53; }
 .tile.dep span { color: #a78bfa; }
 .cart { margin: clamp(7px, 4.1cqw, 12px); margin-top: auto; background: #263248; border-radius: 14px; padding: clamp(7px, 4.1cqw, 12px); }
 .cart-row { display: flex; justify-content: space-between; padding: 3px 0; color: #cbd5e1; }
@@ -321,7 +324,8 @@ footer nav a:first-child { margin-left: 0; }
   font: clamp(8px, 3.8cqw, 10px)/1.5 var(--mono); text-align: center;
   display: flex; flex-direction: column; gap: 1px;
   box-shadow: 0 6px 16px rgba(15,23,42,.18);
-  transform: translateY(0);
+  transform: translateY(0); transform-origin: 50% 100%;
+  --rise: -98px; /* Steighöhe; auf niedrigen Bildschirmen kleiner (siehe dort) */
   animation: phone-bon var(--sale) ease-in-out infinite;
 }
 .phone-bon b { font-weight: 700; }
@@ -385,7 +389,6 @@ footer nav a:first-child { margin-left: 0; }
 }
 
 /* Nullen und Einsen fliegen im Bogen zum Handy der Kundin */
-.phone-bon { transform-origin: 50% 100%; --rise: -98px; }
 .bits span {
   position: absolute; left: 0; top: 0; opacity: 0;
   font: 800 15px/1 var(--mono); color: var(--accent-text);
@@ -403,12 +406,12 @@ footer nav a:first-child { margin-left: 0; }
 .bits span:nth-child(10) { animation-delay: .9s; }
 .bits span:nth-child(even) { color: var(--accent); }
 @keyframes bit {
-  0%, 69% { left: 0;    top: 0;    opacity: 0; transform: scale(.5); }
-  70%     { left: 0;    top: 0;    opacity: 1; transform: scale(.8); }
-  74%     { left: 35%;  top: -6%;  opacity: 1; transform: scale(1.1); }
-  78%     { left: 75%;  top: 45%;  opacity: 1; transform: scale(1); }
-  80%     { left: 100%; top: 100%; opacity: 0; transform: scale(.6); }
-  100%    { left: 100%; top: 100%; opacity: 0; }
+  0%, 69% { opacity: 0; transform: translate(0, 0) scale(.5); }
+  70%     { opacity: 1; transform: translate(0, 0) scale(.8); }
+  74%     { opacity: 1; transform: translate(35cqw, -6cqh) scale(1.1); }
+  78%     { opacity: 1; transform: translate(75cqw, 45cqh) scale(1); }
+  80%     { opacity: 0; transform: translate(100cqw, 100cqh) scale(.6); }
+  100%    { opacity: 0; transform: translate(100cqw, 100cqh) scale(.6); }
 }
 
 /* Handy der Kundin mit Posteingang */
@@ -419,6 +422,7 @@ footer nav a:first-child { margin-left: 0; }
 }
 .c-screen {
   position: relative; height: 100%; border-radius: 20px; overflow: hidden;
+  contain: layout paint; /* Mail-Animation bleibt im Kunden-Handy, kein Neulayout der Seite */
   background: #f8fafc; color: #0f172a; font-size: clamp(7px, 7cqw, 10px); line-height: 1.35;
   display: flex; flex-direction: column;
 }
@@ -452,14 +456,14 @@ footer nav a:first-child { margin-left: 0; }
 .anim-drawer    { animation: drawer 7s ease-in-out infinite; }
 .anim-led       { animation: led 7s steps(1) infinite; }
 @keyframes bon-hand  { 0%, 10% { transform: translateY(70px); } 45%, 85% { transform: translateY(0); } 100% { transform: translateY(70px); } }
-@keyframes bon-theke { 0%, 10% { transform: translateY(78px); } 40%, 85% { transform: translateY(0); } 100% { transform: translateY(78px); } }
+@keyframes bon-theke { 0%, 10% { transform: translateY(76px); } 40%, 85% { transform: translateY(0); } 100% { transform: translateY(76px); } }
 @keyframes drawer    { 0%, 42% { transform: none; } 50%, 78% { transform: translateY(22px); } 88%, 100% { transform: none; } }
 @keyframes led       { 0%, 10% { fill: #22c55e; } 12%, 40% { fill: #f59e0b; } 42%, 100% { fill: #22c55e; } }
 
 /* Reiter: Zeilen bauen sich beim Umschalten nacheinander auf */
 .panel:not([hidden]) .mini-row, .panel:not([hidden]) .mini-big { animation: rise .45s ease-out both; }
-.panel:not([hidden]) .mini-row:nth-child(2) { animation-delay: .08s; }
-.panel:not([hidden]) .mini-row:nth-child(3) { animation-delay: .16s; }
+.panel:not([hidden]) .mini-row:nth-of-type(2) { animation-delay: .08s; }
+.panel:not([hidden]) .mini-row:nth-of-type(3) { animation-delay: .16s; }
 .panel:not([hidden]) .mini-big { animation-delay: .26s; }
 @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
@@ -508,4 +512,23 @@ footer nav a:first-child { margin-left: 0; }
    damit Warenkorb und „Kassieren“ vollständig sichtbar bleiben */
 @container (max-width: 150px) {
   .tile:nth-child(4), .tile:nth-child(6) { display: none; }
+}
+
+/* Pause-Schalter „Animation anhalten“ (WCAG 2.2.2): hält alle Endlos-Animationen an.
+   Die Scroll-Einblendung ist bewusst nicht betroffen, sonst blieben Inhalte unsichtbar. */
+.motion-toggle {
+  display: inline-flex; align-items: center; gap: 6px; order: 5;
+  font-size: 13px; color: var(--muted); cursor: pointer; user-select: none;
+}
+.motion-toggle input { width: 16px; height: 16px; accent-color: var(--accent-text); margin: 0; }
+@container (min-width: 420px) {
+  .motion-toggle { position: absolute; top: 6px; right: 0; z-index: 6; }
+}
+:root:has(#still:checked) :is(.stage, .device-art, .cup-scene) * { animation-play-state: paused; }
+
+/* Außerhalb des sichtbaren Bereichs pausieren (Klasse setzt effects.js) */
+:is(.stage, .device-art, .cup-scene).is-offscreen * { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-toggle { display: none; }
 }
