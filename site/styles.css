@@ -517,7 +517,7 @@ footer nav a:first-child { margin-left: 0; }
 /* Pause-Schalter „Animation anhalten“ (WCAG 2.2.2): hält alle Endlos-Animationen an.
    Die Scroll-Einblendung ist bewusst nicht betroffen, sonst blieben Inhalte unsichtbar. */
 .motion-toggle {
-  display: inline-flex; align-items: center; gap: 6px; order: 5;
+  display: inline-flex; align-items: center; gap: 6px; order: -2; /* schmal: über dem Kassen-Handy */
   font-size: 13px; color: var(--muted); cursor: pointer; user-select: none;
 }
 .motion-toggle input { width: 16px; height: 16px; accent-color: var(--accent-text); margin: 0; }
@@ -525,6 +525,10 @@ footer nav a:first-child { margin-left: 0; }
   .motion-toggle { position: absolute; top: 6px; right: 0; z-index: 6; }
 }
 :root:has(#still:checked) :is(.stage, .device-art, .cup-scene) * { animation-play-state: paused; }
+/* Pfandbecher angehalten: fertiges Bild zeigen statt eines unsichtbaren Startbilds (wie bei „Bewegung reduzieren“) */
+:root:has(#still:checked) .cup-scene :is(.cup, .cup-box rect, .cup-minus) { animation: none; }
+:root:has(#still:checked) .cup { transform: translate(150px, 38px); }
+:root:has(#still:checked) .cup-minus { opacity: 1; }
 
 /* Außerhalb des sichtbaren Bereichs pausieren (Klasse setzt effects.js) */
 :is(.stage, .device-art, .cup-scene).is-offscreen * { animation-play-state: paused; }
