@@ -108,20 +108,21 @@ h3 { font-size: 20px; letter-spacing: -.01em; line-height: 1.25; margin-bottom: 
 .float::before { content: "✓"; color: var(--accent-text); margin-right: 6px; }
 .bits, .customer { display: none; }
 
-/* --w = Breite Kassen-Handy, --c = Breite Kunden-Handy; 2.0556 = Seitenverhältnis 18,5 : 9 */
+/* --w = Breite Kassen-Handy, --c = Breite Kunden-Handy, --co = Abstand des Kunden-Handys vom rechten Rand,
+   damit das Etikett (ca. 190 px breit) mittig darunter passt; 2.0556 = Seitenverhältnis 18,5 : 9 */
 @container (min-width: 420px) {
-  .stage-in { --w: min(220px, 50cqw); --c: min(120px, 26cqw); display: block; padding: 44px 0 50px; }
+  .stage-in { --w: min(220px, 50cqw); --c: min(120px, 26cqw); --co: max(0px, calc((190px - var(--c)) / 2)); display: block; padding: 44px 0 50px; }
   .stage-in .phone { width: var(--w); margin: 0; justify-self: start; }
   .float { position: absolute; }
   /* Etiketten unter den Handys, damit oben nichts die Animation verdeckt */
-  .f2 { bottom: 0; right: 0; }
+  .f2 { bottom: 0; right: calc(var(--co) + var(--c) / 2); transform: translateX(50%); }
   .f3 { bottom: 0; left: calc(var(--w) / 2); transform: translateX(-50%); }
-  .customer { display: block; position: absolute; right: 0; bottom: 50px; width: var(--c); }
+  .customer { display: block; position: absolute; right: var(--co); bottom: 50px; width: var(--c); }
   /* Strecke von der Oberkante des Kassen-Handys bis zur Oberkante des Kunden-Handys */
   .bits {
     display: block; position: absolute; z-index: 5; top: 44px;
     left: calc(var(--w) / 2);
-    right: calc(var(--c) / 2);
+    right: calc(var(--co) + var(--c) / 2);
     height: calc((var(--w) - var(--c)) * 2.0556 - 6px);
     pointer-events: none;
   }
