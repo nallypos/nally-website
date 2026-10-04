@@ -263,7 +263,7 @@ h3 { font-size: 20px; letter-spacing: -.01em; line-height: 1.25; margin-bottom: 
 /* Entwicklungsstand als Bon */
 .state { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
 .state .bon-wrap { max-width: 460px; width: 100%; }
-.mark { font-weight: 700; }
+.mark { font-weight: 700; white-space: nowrap; }
 .mark.ok { color: #15803d; }
 .mark.wip { color: #b45309; }
 
@@ -291,6 +291,7 @@ footer nav a:first-child { margin-left: 0; }
 @media (max-width: 960px) {
   .intro-grid, .why, .state, .closing-grid, .devices, .panel { grid-template-columns: minmax(0, 1fr); }
   .cards, .branches { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .branches > :last-child:nth-child(odd) { grid-column: 1 / -1; } /* drei Karten: die letzte über die volle Breite */
   .closing-cta { justify-self: start; text-align: left; }
   .device-art { min-height: 0; }
 }
@@ -508,7 +509,7 @@ footer nav a:first-child { margin-left: 0; }
   .cup-minus { opacity: 1; }
 }
 
-/* Sehr schmales Kassen-Handy (niedrige Bildschirme): die zwei Kacheln ohne Animation (Limonade, Freier Betrag) ausblenden,
+/* Sehr schmales Kassen-Handy (niedrige Bildschirme): die zwei Kacheln ohne Animation (Pommes, Freier Betrag) ausblenden,
    damit Warenkorb und „Kassieren“ vollständig sichtbar bleiben */
 @container (max-width: 150px) {
   .tile:nth-child(4), .tile:nth-child(6) { display: none; }
