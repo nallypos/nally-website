@@ -206,7 +206,7 @@ h3 { font-size: 20px; letter-spacing: -.01em; line-height: 1.25; margin-bottom: 
 .dep-t { color: #a78bfa; font-weight: 700; }
 
 /* Branchen */
-.branches { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.branches { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; }
 .branch { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; box-shadow: 0 10px 30px rgba(15,23,42,.05); }
 .branch svg { width: 40px; height: 40px; padding: 8px; border-radius: 12px; color: var(--accent-text); background: var(--accent-glow); margin-bottom: 14px; }
 .branch p { margin: 0; color: var(--muted); }

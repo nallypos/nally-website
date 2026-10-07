@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <title>NALLY – Die Kassen-App für Imbiss und Döner</title>
-  <meta name="description" content="NALLY ist eine Kassen-App in Entwicklung für Imbiss, Dönerladen und Pizza zum Abholen: schnell kassieren, Pfand, Kassenabschluss, DSFinV-K-Export. Als Kasse einsetzbar erst mit zertifizierter TSE, die Anbindung ist in Arbeit.">
+  <title>NALLY – Kassen-App für die Theke: Imbiss, Café, Kiosk, Restaurant</title>
+  <meta name="description" content="NALLY ist eine Kassen-App in Entwicklung für den Verkauf an der Theke – in Imbiss, Café, Kiosk und Restaurant (noch ohne Tischbedienung): schnell kassieren, Pfand, Kassenabschluss, DSFinV-K-Export. Als Kasse einsetzbar erst mit zertifizierter TSE, die Anbindung ist in Arbeit.">
   <link rel="canonical" href="https://nallypos.de/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
@@ -35,7 +35,7 @@
         <div class="intro-card">
           <p class="label">Kassen-App · in Entwicklung</p>
           <h1>Kassieren, abschließen, <span class="hl">fertig.</span></h1>
-          <p class="lead">NALLY ist die Kassen-App für Imbiss, Dönerladen und Pizza zum Abholen – für Betriebe, in denen es an der Theke schnell gehen muss. Entstanden an unserem eigenen Crêpes-Anhänger. Als Kasse einsetzbar erst mit zertifizierter TSE – die Anbindung ist in Arbeit.</p>
+          <p class="lead">NALLY ist die Kassen-App für Imbiss, Café, Kiosk und Restaurant – für den Verkauf an der Theke, wo es schnell gehen muss. Entstanden an unserem eigenen Crêpes-Anhänger. Als Kasse einsetzbar erst mit zertifizierter TSE – die Anbindung ist in Arbeit.</p>
           <div class="intro-actions">
             <a class="btn btn-ink" href="#kontakt">Als Pilotbetrieb vormerken</a>
             <a class="btn btn-line" href="#branchen">Für wen?</a>
@@ -100,19 +100,34 @@
       <div class="wrap">
         <div class="head center">
           <p class="kicker">Für wen</p>
-          <h2 id="h-branchen">Zuerst für Imbiss und Döner</h2>
-          <p class="lead">Zum Start konzentrieren wir uns auf inhabergeführte Imbisse, Dönerläden und Pizzerien mit Abholung: eine Kasse an der Theke, viele Bestellungen am Tag. Für diese Betriebe machen wir NALLY zuerst fertig.</p>
+          <h2 id="h-branchen">Für die Theke in Imbiss, Café, Kiosk und Restaurant</h2>
+          <p class="lead">Zum Start konzentrieren wir uns auf inhabergeführte Imbisse, Dönerläden, Cafés, Kioske und Restaurants, die an der Theke oder außer Haus verkaufen: eine Kasse an der Theke, viele Bestellungen am Tag. Für diese Betriebe machen wir NALLY zuerst fertig.</p>
         </div>
         <ul class="branches" role="list">
           <li class="branch">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-            <h3>Imbiss &amp; Dönerladen</h3>
-            <p>Außer Haus oder vor Ort – steht auch auf dem Arbeitszettel für die Zubereitung. Steuersatz je Artikel einstellbar, Pfand für Becher und Flaschen.</p>
+            <h3>Imbiss, Döner &amp; Pizza</h3>
+            <p>Außer Haus oder vor Ort – steht auch auf dem Arbeitszettel für die Zubereitung, der nach dem Bezahlen gedruckt wird. Bestellungen zum Abholen parken und beim Abholen abschließen; für geparkte Bestellungen gibt es noch keinen Küchenzettel. Steuersatz je Artikel einstellbar, Pfand für Becher und Flaschen. Eine Abholnummer auf dem Beleg ist vor dem Start geplant.</p>
           </li>
           <li class="branch">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a15 15 0 0 1 18 0L12 22z"/><path d="M10 11h.01M14 12h.01M12 16h.01"/></svg>
-            <h3>Pizza zum Abholen</h3>
-            <p>Bestellungen parken und beim Abholen abschließen, bar oder per Karte an einem Terminal mit ZVT-Schnittstelle (Test am Terminal steht noch aus). Eine Abholnummer auf dem Beleg ist vor dem Start geplant.</p>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M16 11h2a2 2 0 0 1 0 4h-2"/><path d="M8 3v3M12 3v3"/></svg>
+            <h3>Café</h3>
+            <p>Kaffee und Kuchen an der Theke, vor Ort oder zum Mitnehmen. Steuersatz je Artikel einstellbar, Pfand für Mehrwegbecher.</p>
+          </li>
+          <li class="branch">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5v14M7 5v14M10 5v14M14 5v14M17 5v14M21 5v14"/></svg>
+            <h3>Kiosk</h3>
+            <p>Strichcodes mit der Kamera des Geräts scannen und unbekannte Artikel direkt nach dem Scan anlegen, Pfand und Rücknahme. Agenturgeschäfte wie Lotto, Paketshop oder Guthabenkarten im fremden Namen bildet NALLY noch nicht ab. Wer sie anbietet, klärt vor dem Start mit uns und der Steuerkanzlei, wie dieses Geld getrennt von der Kasse erfasst wird.</p>
+          </li>
+          <li class="branch">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3v8M5 3v4a2 2 0 0 0 4 0V3M7 11v10"/><path d="M17 3c-2 0-3 2-3 5s1 4 3 4v9"/></svg>
+            <h3>Restaurant: Theke und außer Haus</h3>
+            <p>Bestellen und bezahlen an der Theke, vor Ort oder außer Haus. Nach dem Bezahlen kommt ein Arbeitszettel für die Küche aus demselben Bondrucker wie der Beleg, einen eigenen Küchendrucker gibt es noch nicht. Bedienung am Tisch mit Tischen und getrennten Rechnungen ist für eine spätere Ausbaustufe geplant.</p>
+          </li>
+          <li class="branch">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M12 21 8 9l4-6 4 6z"/></svg>
+            <h3>Schmuck und Uhren</h3>
+            <p>Verkauf von neuem Schmuck und neuen Uhren an der Theke: Steuersatz je Artikel einstellbar, Strichcodes scannen, bar oder per Karte an einem Terminal mit ZVT-Schnittstelle (Test am Terminal steht noch aus). Noch nicht dabei: Differenzbesteuerung für Gebrauchtware, Ankauf von Altgold, Anzahlungen und Reparaturaufträge. Anlagegold (Barren und Münzen) bildet NALLY nicht ab. Bei Juwelieren starten wir den Echtbetrieb erst, wenn diese Punkte für Ihren Betrieb geklärt sind. Ihre Pflichten nach dem Geldwäschegesetz, etwa die Identifizierung bei hohen Barzahlungen, erfüllen Sie wie bisher außerhalb von NALLY.</p>
           </li>
           <li class="branch">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9z"/><path d="M9 11h6M9 15h4"/></svg>
@@ -120,7 +135,7 @@
             <p>Zusätze mit Auswahl wie „ohne Zwiebeln“ oder „extra scharf“, Abholnummer, Bar- und Kartenzahlung auf einem Beleg und Menüs zum Festpreis.</p>
           </li>
         </ul>
-        <p class="also">Andere Betriebe – etwa Friseursalon, Bäckerei oder Marktstand – nehmen wir auf Anfrage gern auf die Liste. Arzt-, Zahnarzt-, Therapie- und Heilpraktikerpraxen können wir nicht aufnehmen.</p>
+        <p class="also">Andere Betriebe – etwa Friseursalon, Hofladen oder Marktstand – nehmen wir auf Anfrage gern auf die Liste. Arzt-, Zahnarzt-, Therapie- und Heilpraktikerpraxen können wir nicht aufnehmen.</p>
         <p class="not-yet"><strong>Noch nicht dabei:</strong> Gastronomie mit Tischbedienung (Tische, getrennte Rechnungen) – geplant für eine spätere Ausbaustufe.</p>
       </div>
     </section>
@@ -301,7 +316,7 @@
             <figcaption>
               <span class="tag-soon">gebaut, Gerätetest ausstehend</span>
               <h3>Kassenplatz an der Theke</h3>
-              <p>Android-Tablet oder Smartphone, Bondrucker im Netzwerk und eine Geldschublade am Drucker, die sich bei Barzahlung öffnen kann (einstellbar). Für Imbiss, Dönerladen und Pizzeria – und andere Betriebe mit fester Theke.</p>
+              <p>Android-Tablet oder Smartphone, Bondrucker im Netzwerk und eine Geldschublade am Drucker, die sich bei Barzahlung öffnen kann (einstellbar). Für Imbiss, Café, Kiosk und Restaurant – und andere Betriebe mit fester Theke.</p>
             </figcaption>
           </figure>
         </div>
@@ -394,6 +409,7 @@
             <li class="bon-row"><span>Verkauf, Storno, Pfand</span><span class="mark ok">fertig</span></li>
             <li class="bon-row"><span>Kassenbuch, Abschluss</span><span class="mark ok">fertig</span></li>
             <li class="bon-row"><span>Bondruck LAN/WLAN</span><span class="mark ok">fertig</span></li>
+            <li class="bon-row"><span>Export DATEV, Lexware</span><span class="mark wip">Import-Test ausstehend</span></li>
             <li class="bon-row"><span>DSFinV-K-Export</span><span class="mark wip">Prüfung ausstehend</span></li>
             <li class="bon-row"><span>Kartenzahlung ZVT</span><span class="mark wip">Test am Terminal</span></li>
             <li class="bon-row"><span>Zertifizierte Cloud-TSE</span><span class="mark wip">in Arbeit</span></li>
