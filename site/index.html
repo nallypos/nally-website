@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>NALLY – Kassen-App für die Theke: Imbiss, Café, Kiosk, Restaurant</title>
   <meta name="description" content="NALLY ist eine Kassen-App in Entwicklung für den Verkauf an der Theke – in Imbiss, Café, Kiosk und Restaurant (noch ohne Tischbedienung): schnell kassieren, Pfand, Kassenabschluss, DSFinV-K-Export. Als Kasse einsetzbar erst mit zertifizierter TSE, die Anbindung ist in Arbeit.">
   <link rel="canonical" href="https://nallypos.de/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/ibm-plex-sans-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,30 +20,36 @@
     <div class="wrap top-inner">
       <a class="logo" href="./" aria-label="NALLY Startseite"><img class="logo-mark" src="logo.svg" alt="" width="30" height="30">NALLY</a>
       <nav class="menu" aria-label="Hauptnavigation">
-        <a href="#branchen">Für wen</a>
         <a href="#funktionen">Funktionen</a>
+        <a href="#branchen">Für wen</a>
         <a href="#geraete">Geräte</a>
-        <a href="#warum">Warum NALLY</a>
         <a href="#stand">Stand</a>
-        <a class="btn btn-small" href="#kontakt">Pilot werden</a>
+        <a href="#fragen">Fragen</a>
+        <a class="btn btn-ink btn-small" href="#kontakt">Pilot werden</a>
       </nav>
     </div>
   </header>
 
   <main id="inhalt">
-    <!-- Einstieg -->
-    <div class="intro">
-      <div class="wrap intro-grid">
-        <div class="intro-card">
-          <p class="label">Kassen-App · in Entwicklung</p>
+    <!-- Einstieg: Text links, Kassen-Animation rechts auf heller Fläche -->
+    <div class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">Kassen-App für die Theke · in Entwicklung</p>
           <h1>Kassieren, abschließen, <span class="hl">fertig.</span></h1>
           <p class="lead">NALLY ist die Kassen-App für Imbiss, Café, Kiosk und Restaurant – für den Verkauf an der Theke, wo es schnell gehen muss. Entstanden an unserem eigenen Crêpes-Anhänger. Als Kasse einsetzbar erst mit zertifizierter TSE – die Anbindung ist in Arbeit.</p>
-          <div class="intro-actions">
-            <a class="btn btn-ink" href="#kontakt">Als Pilotbetrieb vormerken</a>
-            <a class="btn btn-line" href="#branchen">Für wen?</a>
+          <div class="proof">
+            <p class="proof-k">Aus der Praxis</p>
+            <p><strong>Wir betreiben selbst einen Crêpes-Anhänger.</strong> In Kiel und Lübeck richten wir NALLY mit Ihnen vor Ort ein.</p>
           </div>
+          <div class="hero-actions">
+            <a class="btn btn-ink" href="#kontakt">Als Pilotbetrieb vormerken</a>
+            <a class="link-u" href="#funktionen">Funktionen ansehen</a>
+          </div>
+          <p class="fine">NALLY ist noch nicht allgemein erhältlich.</p>
         </div>
 
+        <div class="hero-visual">
         <div class="stage">
           <div class="stage-in">
           <!-- Pause-Schalter für alle Endlos-Animationen (WCAG 2.2.2); wirkt per CSS :has(), auch ohne Skript -->
@@ -92,67 +100,31 @@
           </div>
           </div>
         </div>
+        </div>
       </div>
     </div>
 
-    <!-- Für wen: fertige Funktionen sind durch die App gedeckt, Geplantes ist als geplant benannt -->
-    <section class="section first" id="branchen" aria-labelledby="h-branchen">
-      <div class="wrap">
-        <div class="head center">
-          <p class="kicker">Für wen</p>
-          <h2 id="h-branchen">Für die Theke in Imbiss, Café, Kiosk und Restaurant</h2>
-          <p class="lead">Zum Start konzentrieren wir uns auf inhabergeführte Imbisse, Dönerläden, Cafés, Kioske und Restaurants, die an der Theke oder außer Haus verkaufen: eine Kasse an der Theke, viele Bestellungen am Tag. Für diese Betriebe machen wir NALLY zuerst fertig.</p>
-        </div>
-        <ul class="branches" role="list">
-          <li class="branch">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-            <h3>Imbiss, Döner &amp; Pizza</h3>
-            <p>Außer Haus oder vor Ort – steht auch auf dem Arbeitszettel für die Zubereitung, der nach dem Bezahlen gedruckt wird. Bestellungen zum Abholen parken und beim Abholen abschließen; für geparkte Bestellungen gibt es noch keinen Küchenzettel. Steuersatz je Artikel einstellbar, Pfand für Becher und Flaschen. Eine Abholnummer auf dem Beleg ist vor dem Start geplant.</p>
-          </li>
-          <li class="branch">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M16 11h2a2 2 0 0 1 0 4h-2"/><path d="M8 3v3M12 3v3"/></svg>
-            <h3>Café</h3>
-            <p>Kaffee und Kuchen an der Theke, vor Ort oder zum Mitnehmen. Steuersatz je Artikel einstellbar, Pfand für Mehrwegbecher.</p>
-          </li>
-          <li class="branch">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5v14M7 5v14M10 5v14M14 5v14M17 5v14M21 5v14"/></svg>
-            <h3>Kiosk</h3>
-            <p>Strichcodes mit der Kamera des Geräts scannen und unbekannte Artikel direkt nach dem Scan anlegen, Pfand und Rücknahme. Agenturgeschäfte wie Lotto, Paketshop oder Guthabenkarten im fremden Namen bildet NALLY noch nicht ab. Wer sie anbietet, klärt vor dem Start mit uns und der Steuerkanzlei, wie dieses Geld getrennt von der Kasse erfasst wird.</p>
-          </li>
-          <li class="branch">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3v8M5 3v4a2 2 0 0 0 4 0V3M7 11v10"/><path d="M17 3c-2 0-3 2-3 5s1 4 3 4v9"/></svg>
-            <h3>Restaurant: Theke und außer Haus</h3>
-            <p>Bestellen und bezahlen an der Theke, vor Ort oder außer Haus. Nach dem Bezahlen kommt ein Arbeitszettel für die Küche aus demselben Bondrucker wie der Beleg, einen eigenen Küchendrucker gibt es noch nicht. In Arbeit ist die Bedienung am Tisch: Tischliste, Bestellungen auch über Bestell-Handys im WLAN des Betriebs, Bestellbon schon bei der Bestellung und getrennt zahlen an der Kasse. Nutzbar ist sie erst, wenn sie fertig ist und wir sie abgenommen haben. Einen Termin nennen wir noch nicht.</p>
-          </li>
-          <li class="branch">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M12 21 8 9l4-6 4 6z"/></svg>
-            <h3>Schmuck und Uhren</h3>
-            <p>Verkauf von neuem Schmuck und neuen Uhren an der Theke: Steuersatz je Artikel einstellbar, Strichcodes scannen, bar oder per Karte an einem Terminal mit ZVT-Schnittstelle (Test am Terminal steht noch aus). Noch nicht dabei: Differenzbesteuerung für Gebrauchtware, Ankauf von Altgold, Anzahlungen und Reparaturaufträge. Anlagegold (Barren und Münzen) bildet NALLY nicht ab. Bei Juwelieren starten wir den Echtbetrieb erst, wenn diese Punkte für Ihren Betrieb geklärt sind. Ihre Pflichten nach dem Geldwäschegesetz, etwa die Identifizierung bei hohen Barzahlungen, erfüllen Sie wie bisher außerhalb von NALLY.</p>
-          </li>
-          <li class="branch">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9z"/><path d="M9 11h6M9 15h4"/></svg>
-            <h3>Vor dem Start geplant</h3>
-            <p>Zusätze mit Auswahl wie „ohne Zwiebeln“ oder „extra scharf“, Abholnummer, Bar- und Kartenzahlung auf einem Beleg und Menüs zum Festpreis.</p>
-          </li>
-        </ul>
-        <p class="also">Andere Betriebe – etwa Friseursalon oder Bäckerei – nehmen wir auf Anfrage gern auf die Liste. Betriebe, die an der Theke nach Gewicht verkaufen, können wir noch nicht aufnehmen. Arzt-, Zahnarzt-, Therapie- und Heilpraktikerpraxen können wir nicht aufnehmen.</p>
-        <p class="not-yet"><strong>Noch nicht dabei:</strong> Gastronomie mit Tischbedienung (Tische, getrennt zahlen) – die Funktion ist in Arbeit.</p>
-      </div>
-    </section>
+    <!-- Leiste unter dem Einstieg: Tatsachen im Blickfang, Vorbehalte stehen im selben Punkt -->
+    <ul class="trust wrap" role="list">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>Verkauf, Pfand und Abschluss fertig, TSE-Anpassung folgt – als Kasse erst mit TSE</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></svg>Server in Frankfurt (im Aufbau)</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M11 18h2"/></svg>Android: Tablet und Smartphone (Gerätetest ausstehend)</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg>Diese Website: keine Cookies, kein Tracking</li>
+    </ul>
 
-    <!-- Ein Tag mit NALLY: Reiter -->
+    <!-- Ein Tag mit NALLY: Reiter mit Symbolen -->
     <section class="section soft" id="funktionen" aria-labelledby="h-funktionen">
       <div class="wrap">
         <div class="head center">
-          <p class="kicker">Ein Verkaufstag mit NALLY</p>
+          <p class="eyebrow">Ein Verkaufstag mit NALLY</p>
           <h2 id="h-funktionen">Vom ersten Bon bis zum Abschluss</h2>
           <p class="lead">Morgens öffnen, tagsüber verkaufen, abends mit wenigen Tipps abschließen.</p>
         </div>
 
         <div class="tabs" role="tablist" aria-label="Ablauf eines Verkaufstags">
-          <button role="tab" id="t-verkauf" aria-controls="p-verkauf" aria-selected="true">Verkaufen</button>
-          <button role="tab" id="t-pfand" aria-controls="p-pfand" aria-selected="false" tabindex="-1">Pfand &amp; Storno</button>
-          <button role="tab" id="t-abschluss" aria-controls="p-abschluss" aria-selected="false" tabindex="-1">Abschluss</button>
+          <button role="tab" id="t-verkauf" aria-controls="p-verkauf" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Verkaufen</button>
+          <button role="tab" id="t-pfand" aria-controls="p-pfand" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15.5-6.3L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.3L3 16"/><path d="M3 21v-5h5"/></svg>Pfand &amp; Storno</button>
+          <button role="tab" id="t-abschluss" aria-controls="p-abschluss" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M6 16v-5M11 16V6M16 16v-8"/></svg>Abschluss</button>
         </div>
 
         <div class="panel" role="tabpanel" id="p-verkauf" aria-labelledby="t-verkauf" tabindex="0">
@@ -211,57 +183,94 @@
             <div class="mini-cap">Tagesumsatz · Z-Bericht 0093</div>
           </div>
         </div>
+
+        <!-- Funktionen als Liste mit Symbolen -->
+        <h3 class="incl-h" id="h-alles">Was sonst noch drinsteckt</h3>
+        <ul class="incl" role="list" aria-labelledby="h-alles">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>
+            <div><h4>Belege</h4><p>Beleg auf dem Bondrucker oder per E-Mail über das Mailprogramm des Geräts – mit angebundener TSE auch mit QR-Code.</p><p class="result">Bondruck über LAN und WLAN</p></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg>
+            <div><h4>Kartenzahlung</h4><p>Terminals mit ZVT-Schnittstelle anbinden – mit Ihrem eigenen Vertrag bei Ihrem Zahlungsdienstleister; die Kassenanbindung muss am Terminal freigeschaltet sein. Der Test am Terminal steht noch aus.</p><p class="result">Am Terminal keine Bindung an einen Zahlungsanbieter</p></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 5a3 3 0 0 1 0 6M21 20a6 6 0 0 0-4-5.6"/></svg>
+            <div><h4>Team</h4><p>PIN-Anmeldung, Rollen mit einzelnen Rechten, Gerätesperre.</p><p class="result">Mehrere Kassen je Betrieb, jede mit eigenem Abschluss</p></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg>
+            <div><h4>Bestand</h4><p>Wareneingang, Zählung und Schwund im Journal.</p><p class="result">Direkt aus ZUGFeRD und XRechnung</p></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12V3h9l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>
+            <div><h4>Artikel</h4><p>Artikelstamm als CSV bearbeiten, Strichcodes scannen.</p><p class="result">Sicherung mit Prüfsumme</p></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h11a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3z"/><path d="M4 17a3 3 0 0 1 3-3h11"/></svg>
+            <div><h4>Buchhaltung</h4><p>Buchungsstapel im DATEV- und Lexware-Format. Die Kontenzuordnung stimmen Sie mit Ihrer Steuerkanzlei ab.</p><p class="result">Übergabe an die Steuerkanzlei</p></div>
+          </li>
+        </ul>
+        <div class="center-cta"><a class="btn btn-ink" href="#kontakt">Als Pilotbetrieb vormerken</a></div>
       </div>
     </section>
 
-    <!-- Geräte -->
-    <section class="section" id="geraete" aria-labelledby="h-geraete">
+    <!-- Für wen: fertige Funktionen sind durch die App gedeckt, Geplantes ist als geplant benannt -->
+    <section class="section" id="branchen" aria-labelledby="h-branchen">
       <div class="wrap">
         <div class="head center">
-          <p class="kicker">Geräte</p>
+          <p class="eyebrow">Für wen</p>
+          <h2 id="h-branchen">Für die <span class="ul">Theke</span> in Imbiss, Café, Kiosk und Restaurant</h2>
+          <p class="lead">Zum Start konzentrieren wir uns auf inhabergeführte Imbisse, Dönerläden, Cafés, Kioske und Restaurants, die an der Theke oder außer Haus verkaufen: eine Kasse an der Theke, viele Bestellungen am Tag. Für diese Betriebe machen wir NALLY zuerst fertig.</p>
+        </div>
+        <ul class="branches" role="list">
+          <li class="branch wide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+            <h3>Imbiss, Döner &amp; Pizza</h3>
+            <p>Außer Haus oder vor Ort – steht auch auf dem Arbeitszettel für die Zubereitung, der nach dem Bezahlen gedruckt wird. Bestellungen zum Abholen parken und beim Abholen abschließen; für geparkte Bestellungen gibt es noch keinen Küchenzettel. Steuersatz je Artikel einstellbar, Pfand für Becher und Flaschen. Eine Abholnummer auf dem Beleg ist vor dem Start geplant.</p>
+          </li>
+          <li class="branch">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M16 11h2a2 2 0 0 1 0 4h-2"/><path d="M8 3v3M12 3v3"/></svg>
+            <h3>Café</h3>
+            <p>Kaffee und Kuchen an der Theke, vor Ort oder zum Mitnehmen. Steuersatz je Artikel einstellbar, Pfand für Mehrwegbecher.</p>
+          </li>
+          <li class="branch">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5v14M7 5v14M10 5v14M14 5v14M17 5v14M21 5v14"/></svg>
+            <h3>Kiosk</h3>
+            <p>Strichcodes mit der Kamera des Geräts scannen und unbekannte Artikel direkt nach dem Scan anlegen, Pfand und Rücknahme. Agenturgeschäfte wie Lotto, Paketshop oder Guthabenkarten im fremden Namen bildet NALLY noch nicht ab. Wer sie anbietet, klärt vor dem Start mit uns und der Steuerkanzlei, wie dieses Geld getrennt von der Kasse erfasst wird.</p>
+          </li>
+          <li class="branch">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3v8M5 3v4a2 2 0 0 0 4 0V3M7 11v10"/><path d="M17 3c-2 0-3 2-3 5s1 4 3 4v9"/></svg>
+            <h3>Restaurant: Theke und außer Haus</h3>
+            <p>Bestellen und bezahlen an der Theke, vor Ort oder außer Haus. Nach dem Bezahlen kommt ein Arbeitszettel für die Küche aus demselben Bondrucker wie der Beleg, einen eigenen Küchendrucker gibt es noch nicht. Geplant ist die Bedienung am Tisch: Tischliste, Bestellungen auch über Bestell-Handys im WLAN des Betriebs, Bestellbon schon bei der Bestellung und getrennt zahlen an der Kasse. Nutzbar ist sie erst, wenn sie fertig ist und wir sie abgenommen haben. Einen Termin nennen wir noch nicht.</p>
+          </li>
+          <li class="branch">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M12 21 8 9l4-6 4 6z"/></svg>
+            <h3>Schmuck und Uhren</h3>
+            <p>Verkauf von neuem Schmuck und neuen Uhren an der Theke: Steuersatz je Artikel einstellbar, Strichcodes scannen, bar oder per Karte an einem Terminal mit ZVT-Schnittstelle (Test am Terminal steht noch aus). Noch nicht dabei: Differenzbesteuerung für Gebrauchtware, Ankauf von Altgold, Anzahlungen und Reparaturaufträge. Anlagegold (Barren und Münzen) bildet NALLY nicht ab. Bei Juwelieren starten wir den Echtbetrieb erst, wenn diese Punkte für Ihren Betrieb geklärt sind. Ihre Pflichten nach dem Geldwäschegesetz, etwa die Identifizierung bei hohen Barzahlungen, erfüllen Sie wie bisher außerhalb von NALLY.</p>
+          </li>
+          <li class="branch plan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9z"/><path d="M9 11h6M9 15h4"/></svg>
+            <h3>Vor dem Start geplant</h3>
+            <p>Zusätze mit Auswahl wie „ohne Zwiebeln“ oder „extra scharf“, Abholnummer, Bar- und Kartenzahlung auf einem Beleg und Menüs zum Festpreis.</p>
+          </li>
+        </ul>
+        <p class="also">Andere Betriebe – etwa Friseursalon oder Bäckerei – nehmen wir auf Anfrage gern auf die Liste. Betriebe, die an der Theke nach Gewicht verkaufen, können wir noch nicht aufnehmen. Arzt-, Zahnarzt-, Therapie- und Heilpraktikerpraxen können wir nicht aufnehmen.</p>
+        <p class="not-yet"><strong>Noch nicht dabei:</strong> Gastronomie mit Tischbedienung (Tische, getrennt zahlen) – geplant, einen Termin nennen wir noch nicht.</p>
+      </div>
+    </section>
+
+    <!-- Geräte: Zeichnung und Steckbrief je Gerät -->
+    <section class="section soft" id="geraete" aria-labelledby="h-geraete">
+      <div class="wrap">
+        <div class="head center">
+          <p class="eyebrow">Geräte</p>
           <h2 id="h-geraete">In der Hand oder an der Theke</h2>
           <p class="lead">NALLY läuft auf Android: am festen Platz mit Tablet oder Smartphone, Bondrucker und Geldschublade. Handgeräte sind geplant.</p>
         </div>
 
         <div class="devices">
-          <figure class="device">
-            <div class="device-art">
-              <svg viewBox="0 0 260 400" role="img" aria-labelledby="svg-hand">
-                <title id="svg-hand">Android-Kassengerät in der Hand mit eingebautem Bondrucker, aus dem ein Beleg kommt</title>
-                <!-- Bon aus dem Drucker -->
-                <g class="anim-bon-hand">
-                <path d="M88 10h84v92H88z" fill="var(--paper)"/>
-                <path d="M88 10l7 6 7-6 7 6 7-6 7 6 7-6 7 6 7-6 7 6 7-6 7 6 7-6" fill="none" stroke="var(--line)" stroke-width="1.5"/>
-                <g fill="#9ca3af"><rect x="100" y="30" width="44" height="4" rx="2"/><rect x="100" y="42" width="60" height="4" rx="2"/><rect x="100" y="54" width="52" height="4" rx="2"/><rect x="100" y="70" width="60" height="5" rx="2" fill="#6b7280"/></g>
-                </g>
-                <!-- Gerät -->
-                <rect x="46" y="78" width="168" height="310" rx="30" fill="#1e293b"/>
-                <rect x="70" y="84" width="120" height="30" rx="10" fill="#0f172a"/>
-                <rect x="84" y="96" width="92" height="5" rx="2.5" fill="#020617"/>
-                <!-- Bildschirm -->
-                <rect x="60" y="124" width="140" height="214" rx="12" fill="#0f172a"/>
-                <text x="72" y="146" font-family="system-ui, sans-serif" font-size="11" font-weight="800" fill="#f1f5f9">Kasse 2</text>
-                <rect x="72" y="156" width="56" height="38" rx="7" fill="#38bdf8"/>
-                <rect x="132" y="156" width="56" height="38" rx="7" fill="#263248"/>
-                <rect x="72" y="198" width="56" height="38" rx="7" fill="#263248"/>
-                <rect x="132" y="198" width="56" height="38" rx="7" fill="#263248"/>
-                <g font-family="system-ui, sans-serif" font-size="8" font-weight="700"><text x="78" y="172" fill="#0f172a">Döner</text><text x="138" y="172" fill="#f1f5f9">Ayran</text><text x="78" y="214" fill="#f1f5f9">Pommes</text><text x="138" y="214" fill="#a78bfa">Pfand</text></g>
-                <rect x="72" y="246" width="116" height="1" fill="#33415c"/>
-                <g font-family="system-ui, sans-serif" font-size="9" fill="#cbd5e1"><text x="72" y="264">1 × Döner</text><text x="72" y="280">1 × Ayran</text></g>
-                <text x="72" y="302" font-family="system-ui, sans-serif" font-size="12" font-weight="800" fill="#f1f5f9">10,00 €</text>
-                <rect x="72" y="310" width="116" height="20" rx="6" fill="#38bdf8"/>
-                <text x="130" y="324" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="800" fill="#0f172a">Kassieren</text>
-                <!-- Kontaktlos-Zeichen -->
-                <g fill="none" stroke="#475569" stroke-width="3" stroke-linecap="round"><path d="M122 352a10 10 0 0 1 0 16"/><path d="M129 348a17 17 0 0 1 0 24"/><path d="M136 344a24 24 0 0 1 0 32"/></g>
-              </svg>
-            </div>
-            <figcaption>
-              <span class="tag-soon">geplant</span>
-              <h3>Handgerät mit Drucker</h3>
-              <p>Android-Kassengeräte mit eingebautem Bondrucker – ein Gerät direkt bei der Kundschaft. Die Unterstützung solcher Geräte ist geplant, getestet ist noch keins. Die Kartenzahlung läuft dort über die Zahlungs-App des jeweiligen Anbieters; ob und wie NALLY sie aufruft, prüfen wir je Gerät.</p>
-            </figcaption>
-          </figure>
-
           <figure class="device">
             <div class="device-art">
               <svg viewBox="0 0 480 400" role="img" aria-labelledby="svg-theke">
@@ -316,33 +325,61 @@
             <figcaption>
               <span class="tag-soon">gebaut, Gerätetest ausstehend</span>
               <h3>Kassenplatz an der Theke</h3>
-              <p>Android-Tablet oder Smartphone, Bondrucker im Netzwerk und eine Geldschublade am Drucker, die sich bei Barzahlung öffnen kann (einstellbar). Für Imbiss, Café, Kiosk und Restaurant – und andere Betriebe mit fester Theke.</p>
+              <!-- Steckbrief: dieselben Aussagen wie im bisherigen Text, nur als Zeilen -->
+              <dl class="spec">
+                <div><dt>Gerät</dt><dd>Android-Tablet oder Smartphone</dd></div>
+                <div><dt>Bondruck</dt><dd>Bondrucker im Netzwerk, über LAN und WLAN</dd></div>
+                <div><dt>Geldschublade</dt><dd>am Drucker, kann sich bei Barzahlung öffnen (einstellbar)</dd></div>
+                <div><dt>Kartenzahlung</dt><dd>Terminal mit ZVT-Schnittstelle (Test am Terminal steht noch aus)</dd></div>
+                <div><dt>TSE</dt><dd>zertifizierte Cloud-TSE, Anbindung in Arbeit – bis dahin nicht als Kasse einsetzbar</dd></div>
+                <div><dt>Für</dt><dd>Imbiss, Café, Kiosk und Restaurant an der Theke; andere Betriebe auf Anfrage</dd></div>
+              </dl>
+            </figcaption>
+          </figure>
+
+          <figure class="device">
+            <div class="device-art">
+              <svg viewBox="0 0 260 400" role="img" aria-labelledby="svg-hand">
+                <title id="svg-hand">Android-Kassengerät in der Hand mit eingebautem Bondrucker, aus dem ein Beleg kommt</title>
+                <!-- Bon aus dem Drucker -->
+                <g class="anim-bon-hand">
+                <path d="M88 10h84v92H88z" fill="var(--paper)"/>
+                <path d="M88 10l7 6 7-6 7 6 7-6 7 6 7-6 7 6 7-6 7 6 7-6 7 6 7-6" fill="none" stroke="var(--line)" stroke-width="1.5"/>
+                <g fill="#9ca3af"><rect x="100" y="30" width="44" height="4" rx="2"/><rect x="100" y="42" width="60" height="4" rx="2"/><rect x="100" y="54" width="52" height="4" rx="2"/><rect x="100" y="70" width="60" height="5" rx="2" fill="#6b7280"/></g>
+                </g>
+                <!-- Gerät -->
+                <rect x="46" y="78" width="168" height="310" rx="30" fill="#1e293b"/>
+                <rect x="70" y="84" width="120" height="30" rx="10" fill="#0f172a"/>
+                <rect x="84" y="96" width="92" height="5" rx="2.5" fill="#020617"/>
+                <!-- Bildschirm -->
+                <rect x="60" y="124" width="140" height="214" rx="12" fill="#0f172a"/>
+                <text x="72" y="146" font-family="system-ui, sans-serif" font-size="11" font-weight="800" fill="#f1f5f9">Kasse 2</text>
+                <rect x="72" y="156" width="56" height="38" rx="7" fill="#38bdf8"/>
+                <rect x="132" y="156" width="56" height="38" rx="7" fill="#263248"/>
+                <rect x="72" y="198" width="56" height="38" rx="7" fill="#263248"/>
+                <rect x="132" y="198" width="56" height="38" rx="7" fill="#263248"/>
+                <g font-family="system-ui, sans-serif" font-size="8" font-weight="700"><text x="78" y="172" fill="#0f172a">Döner</text><text x="138" y="172" fill="#f1f5f9">Ayran</text><text x="78" y="214" fill="#f1f5f9">Pommes</text><text x="138" y="214" fill="#a78bfa">Pfand</text></g>
+                <rect x="72" y="246" width="116" height="1" fill="#33415c"/>
+                <g font-family="system-ui, sans-serif" font-size="9" fill="#cbd5e1"><text x="72" y="264">1 × Döner</text><text x="72" y="280">1 × Ayran</text></g>
+                <text x="72" y="302" font-family="system-ui, sans-serif" font-size="12" font-weight="800" fill="#f1f5f9">10,00 €</text>
+                <rect x="72" y="310" width="116" height="20" rx="6" fill="#38bdf8"/>
+                <text x="130" y="324" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="800" fill="#0f172a">Kassieren</text>
+                <!-- Kontaktlos-Zeichen -->
+                <g fill="none" stroke="#475569" stroke-width="3" stroke-linecap="round"><path d="M122 352a10 10 0 0 1 0 16"/><path d="M129 348a17 17 0 0 1 0 24"/><path d="M136 344a24 24 0 0 1 0 32"/></g>
+              </svg>
+            </div>
+            <figcaption>
+              <span class="tag-soon">geplant</span>
+              <h3>Handgerät mit Drucker</h3>
+              <p>Android-Kassengeräte mit eingebautem Bondrucker – ein Gerät direkt bei der Kundschaft. Die Unterstützung solcher Geräte ist geplant, getestet ist noch keins. Die Kartenzahlung läuft dort über die Zahlungs-App des jeweiligen Anbieters; ob und wie NALLY sie aufruft, prüfen wir je Gerät.</p>
             </figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <!-- Funktionen als Karten -->
-    <section class="section soft pt-72" aria-labelledby="h-alles">
-      <div class="wrap">
-        <div class="head">
-          <p class="kicker">Funktionen</p>
-          <h2 id="h-alles">Was sonst noch drinsteckt</h2>
-        </div>
-        <div class="cards">
-          <div class="card"><h3>Belege</h3><p>Beleg auf dem Bondrucker oder per E-Mail über das Mailprogramm des Geräts – mit angebundener TSE auch mit QR-Code.</p><p class="result">Bondruck über LAN und WLAN</p></div>
-          <div class="card"><h3>Kartenzahlung</h3><p>Terminals mit ZVT-Schnittstelle anbinden – mit Ihrem eigenen Vertrag bei Ihrem Zahlungsdienstleister; die Kassenanbindung muss am Terminal freigeschaltet sein. Der Test am Terminal steht noch aus.</p><p class="result">Am Terminal keine Bindung an einen Zahlungsanbieter</p></div>
-          <div class="card"><h3>Team</h3><p>PIN-Anmeldung, Rollen mit einzelnen Rechten, Gerätesperre.</p><p class="result">Mehrere Kassen je Betrieb, jede mit eigenem Abschluss</p></div>
-          <div class="card"><h3>Bestand</h3><p>Wareneingang, Zählung und Schwund im Journal.</p><p class="result">Direkt aus ZUGFeRD und XRechnung</p></div>
-          <div class="card"><h3>Artikel</h3><p>Artikelstamm als CSV bearbeiten, Strichcodes scannen.</p><p class="result">Sicherung mit Prüfsumme</p></div>
-          <div class="card"><h3>Buchhaltung</h3><p>Buchungsstapel im DATEV- und Lexware-Format. Die Kontenzuordnung stimmen Sie mit Ihrer Steuerkanzlei ab.</p><p class="result">Übergabe an die Steuerkanzlei</p></div>
-        </div>
-      </div>
-    </section>
-
     <!-- Warum NALLY -->
-    <section class="section soft" id="warum" aria-labelledby="h-warum">
+    <section class="section" id="warum" aria-labelledby="h-warum">
       <div class="wrap why">
         <div class="bon-wrap"><div class="bon" aria-hidden="true">
           <div class="bon-head">MUSTERIMBISS</div>
@@ -358,7 +395,7 @@
           <div class="bon-sub">Danke und guten Appetit!</div>
         </div></div>
         <div>
-          <p class="kicker">Warum NALLY</p>
+          <p class="eyebrow">Warum NALLY</p>
           <h2 id="h-warum">Aus der Praxis, nicht aus dem Büro</h2>
           <p class="lead">Wir betreiben selbst einen Crêpes-Anhänger. Dort ist NALLY entstanden – und dort probieren wir neue Funktionen aus. Als Kasse setzen wir NALLY dort erst mit angebundener TSE ein.</p>
           <ul class="points" role="list">
@@ -379,18 +416,18 @@
       </div>
     </section>
 
-    <!-- Einstieg in drei Etappen -->
-    <section class="section" aria-labelledby="h-weg">
+    <!-- Einstieg in drei Etappen (aufklappbar, ohne Skript) -->
+    <section class="section soft" aria-labelledby="h-weg">
       <div class="wrap">
-        <div class="head">
-          <p class="kicker">Der Weg zu NALLY</p>
+        <div class="head center">
+          <p class="eyebrow">Der Weg zu NALLY</p>
           <h2 id="h-weg">Vom ersten Gespräch zum ersten Bon</h2>
         </div>
-        <div class="path">
-          <div class="stop"><div class="dot">1</div><h3>Sie melden sich</h3><p>Sie erzählen, was Sie verkaufen und wo. Wir nehmen Sie auf die Liste der Pilotbetriebe und sagen ehrlich, ab wann NALLY zu Ihnen passt. Zum Start besuchen wir Betriebe in Kiel und Lübeck.</p></div>
-          <div class="stop"><div class="dot">2</div><h3>Gemeinsam einrichten</h3><p>In Kiel und Lübeck richten wir NALLY mit Ihnen vor Ort ein: Preise, Warengruppen und Pfand anlegen – oder als CSV-Liste übernehmen. Drucker und Terminal verbinden, Testdruck machen. Für Betriebe anderswo sprechen wir den Weg mit Ihnen ab.</p></div>
-          <div class="stop"><div class="dot">3</div><h3>Bon raus</h3><p>Sind die zertifizierte TSE angebunden und die übrigen Voraussetzungen für den Kassenbetrieb erfüllt, starten wir gemeinsam den Echtbetrieb. Ihre Kasse melden Sie Ihrem Finanzamt innerhalb eines Monats nach der Anschaffung; NALLY zeigt Ihnen die Angaben dafür, den Stichtag stimmen Sie mit Ihrer Steuerkanzlei ab. Ihre Rückmeldung landet direkt bei den Entwicklern.</p></div>
-        </div>
+        <ol class="steps" role="list">
+          <li><details open><summary><span class="num">01</span>Sie melden sich</summary><p>Sie erzählen, was Sie verkaufen und wo. Wir nehmen Sie auf die Liste der Pilotbetriebe und sagen ehrlich, ab wann NALLY zu Ihnen passt. Zum Start besuchen wir Betriebe in Kiel und Lübeck.</p></details></li>
+          <li><details><summary><span class="num">02</span>Gemeinsam einrichten</summary><p>In Kiel und Lübeck richten wir NALLY mit Ihnen vor Ort ein: Preise, Warengruppen und Pfand anlegen – oder als CSV-Liste übernehmen. Drucker und Terminal verbinden, Testdruck machen. Für Betriebe anderswo sprechen wir den Weg mit Ihnen ab.</p></details></li>
+          <li><details><summary><span class="num">03</span>Bon raus</summary><p>Sind die zertifizierte TSE angebunden und die übrigen Voraussetzungen für den Kassenbetrieb erfüllt, starten wir gemeinsam den Echtbetrieb. Ihre Kasse melden Sie Ihrem Finanzamt innerhalb eines Monats nach der Anschaffung; NALLY zeigt Ihnen die Angaben dafür, den Stichtag stimmen Sie mit Ihrer Steuerkanzlei ab. Ihre Rückmeldung landet direkt bei den Entwicklern.</p></details></li>
+        </ol>
       </div>
     </section>
 
@@ -398,7 +435,7 @@
     <section class="section" id="stand" aria-labelledby="h-stand">
       <div class="wrap state">
         <div>
-          <p class="kicker">Entwicklungsstand</p>
+          <p class="eyebrow">Entwicklungsstand</p>
           <h2 id="h-stand">Ehrlich abgerechnet</h2>
           <p class="lead">NALLY ist noch nicht allgemein erhältlich. Hier steht, was fertig ist – und was noch fehlt. Als Kasse im Echtbetrieb darf NALLY erst mit angebundener, zertifizierter TSE laufen.</p>
         </div>
@@ -413,11 +450,12 @@
             <li class="bon-row"><span>DSFinV-K-Export</span><span class="mark wip">Prüfung ausstehend</span></li>
             <li class="bon-row"><span>Kartenzahlung ZVT</span><span class="mark wip">Test am Terminal</span></li>
             <li class="bon-row"><span>Zertifizierte Cloud-TSE</span><span class="mark wip">in Arbeit</span></li>
+            <li class="bon-row"><span>Anpassung an die TSE (Parken, Storno, Abschluss)</span><span class="mark wip">vor Start</span></li>
             <li class="bon-row"><span>Server Frankfurt</span><span class="mark wip">im Aufbau</span></li>
             <li class="bon-row"><span>Zusätze und Menüs</span><span class="mark wip">vor Start</span></li>
             <li class="bon-row"><span>Abholnummer</span><span class="mark wip">vor Start</span></li>
             <li class="bon-row"><span>Bar und Karte auf einem Beleg</span><span class="mark wip">vor Start</span></li>
-            <li class="bon-row"><span>Tische (Restaurant)</span><span class="mark wip">in Arbeit</span></li>
+            <li class="bon-row"><span>Tische (Restaurant)</span><span class="mark wip">geplant</span></li>
             <li class="bon-row"><span>Handgeräte, iOS</span><span class="mark wip">geplant</span></li>
           </ul>
           <hr>
@@ -426,26 +464,57 @@
       </div>
     </section>
 
+    <!-- Häufige Fragen: Antworten nur aus den geprüften Aussagen dieser Seite -->
+    <section class="section soft" id="fragen" aria-labelledby="h-fragen">
+      <div class="wrap">
+        <div class="head center">
+          <p class="eyebrow">Fragen</p>
+          <h2 id="h-fragen">Häufige Fragen</h2>
+        </div>
+        <div class="faq">
+          <details><summary>Ab wann kann ich NALLY als Kasse nutzen?</summary><p>Als Kasse im Echtbetrieb darf NALLY erst mit angebundener, zertifizierter TSE laufen – die Anbindung ist in Arbeit. Den Echtbetrieb starten wir erst, wenn die zertifizierte TSE angebunden ist und NALLY die übrigen Voraussetzungen für den Kassenbetrieb erfüllt.</p></details>
+          <details><summary>Was kostet NALLY?</summary><p>Ein verbindliches Angebot mit Preis und allen Bedingungen erhalten Sie erst nach der Gründung der NALLY-Gesellschaft. Vorher schließen wir keine Verträge. Die Vormerkung als Pilotbetrieb ist unverbindlich.</p></details>
+          <details><summary>Welche Geräte brauche ich?</summary><p>NALLY läuft auf Android: am festen Platz mit Tablet oder Smartphone, Bondrucker im Netzwerk und einer Geldschublade am Drucker. Dazu kommt eine zertifizierte Cloud-TSE, deren Anbindung in Arbeit ist. Der Test an echten Geräten steht noch aus; welches Gerät passt, prüfen wir vorher mit Ihnen. Handgeräte sind geplant.</p></details>
+          <details><summary>Gibt es NALLY für das iPhone?</summary><p>Noch nicht. Handgeräte und iOS sind geplant.</p></details>
+          <details><summary>Kann ich mein Kartenterminal behalten?</summary><p>Terminals mit ZVT-Schnittstelle binden Sie mit Ihrem eigenen Vertrag bei Ihrem Zahlungsdienstleister an; die Kassenanbindung muss am Terminal freigeschaltet sein. Der Test am Terminal steht noch aus.</p></details>
+          <details><summary>Wo liegen meine Daten?</summary><p>Artikel, Bons und Abschlüsse liegen auf dem Gerät. Für Sicherung und Verwaltung bauen wir einen Server in einem Rechenzentrum in Frankfurt am Main auf. Mit angebundener TSE gehen die Daten, die die TSE absichern muss, zusätzlich an den Anbieter der zertifizierten Cloud-TSE. Mit jedem Betrieb schließen wir einen Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO; darin nennen wir alle Dienstleister und Orte, an denen Ihre Daten verarbeitet werden.</p></details>
+          <details><summary>Muss ich meine Kasse beim Finanzamt melden?</summary><p>Ihre Kasse melden Sie Ihrem Finanzamt innerhalb eines Monats nach der Anschaffung; NALLY zeigt Ihnen die Angaben dafür, den Stichtag stimmen Sie mit Ihrer Steuerkanzlei ab.</p></details>
+          <details><summary>Kann ich meine Artikel übernehmen?</summary><p>Ja: Preise, Warengruppen und Pfand legen wir mit Ihnen an – oder übernehmen sie als CSV-Liste.</p></details>
+          <details><summary>Mein Betrieb ist nicht dabei – geht das trotzdem?</summary><p>Zum Start konzentrieren wir uns auf Imbiss, Café, Kiosk und Restaurant an der Theke. Andere Betriebe – etwa Friseursalon oder Bäckerei – nehmen wir auf Anfrage gern auf die Liste und sagen Ihnen ehrlich, ob und ab wann NALLY zu Ihnen passt. Betriebe, die an der Theke nach Gewicht verkaufen, können wir noch nicht aufnehmen. Arzt-, Zahnarzt-, Therapie- und Heilpraktikerpraxen können wir nicht aufnehmen.</p></details>
+        </div>
+      </div>
+    </section>
+
     <!-- Kontakt -->
     <section class="closing" id="kontakt" aria-labelledby="h-kontakt">
       <div class="wrap closing-grid">
         <div>
+          <p class="eyebrow">Pilotbetriebe gesucht</p>
           <h2 id="h-kontakt">Werden Sie Pilotbetrieb.</h2>
           <p class="lead">Wir führen eine Liste von Betrieben, die NALLY als Erste nutzen möchten, und richten jeden persönlich ein. Die Vormerkung ist unverbindlich. Ein verbindliches Angebot mit Preis und allen Bedingungen erhalten Sie erst nach der Gründung der NALLY-Gesellschaft. Vorher schließen wir keine Verträge. Den Echtbetrieb starten wir erst, wenn die zertifizierte TSE angebunden ist und NALLY die übrigen Voraussetzungen für den Kassenbetrieb erfüllt.</p>
         </div>
         <div class="closing-cta">
-          <a class="btn btn-accent" href="mailto:kontakt@nallypos.de?subject=Pilotbetrieb%20NALLY">Als Pilotbetrieb vormerken</a>
+          <a class="btn btn-ink" href="mailto:kontakt@nallypos.de?subject=Pilotbetrieb%20NALLY">Als Pilotbetrieb vormerken</a>
           <small>kontakt@nallypos.de</small>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap foot-row">
-      <a class="logo" href="./"><img class="logo-mark" src="logo.svg" alt="" width="30" height="30">NALLY</a>
+  <footer class="foot">
+    <div class="wrap foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="./"><img class="logo-mark" src="logo.svg" alt="" width="30" height="30">NALLY</a>
+        <p>Die Kassen-App für die Theke in Imbiss, Café, Kiosk und Restaurant. In Entwicklung.</p>
+      </div>
+      <nav aria-labelledby="f-produkt"><h2 class="foot-h" id="f-produkt">Produkt</h2><a href="#funktionen">Funktionen</a><a href="#geraete">Geräte</a><a href="#stand">Entwicklungsstand</a><a href="#fragen">Häufige Fragen</a></nav>
+      <nav aria-labelledby="f-wen"><h2 class="foot-h" id="f-wen">Für wen</h2><a href="#branchen">Imbiss, Döner &amp; Pizza</a><a href="#branchen">Café</a><a href="#branchen">Kiosk</a><a href="#branchen">Restaurant</a><a href="#branchen">Schmuck und Uhren</a></nav>
+      <nav aria-labelledby="f-kontakt"><h2 class="foot-h" id="f-kontakt">Kontakt</h2><a href="#kontakt">Pilot werden</a><a href="mailto:kontakt@nallypos.de">kontakt@nallypos.de</a></nav>
+      <nav aria-labelledby="f-recht"><h2 class="foot-h" id="f-recht">Rechtliches</h2><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
+    </div>
+    <div class="wrap foot-bottom">
       <span>© 2026 NALLY (in Gründung)</span>
-      <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
+      <span>Kiel, Schleswig-Holstein</span>
     </div>
   </footer>
   <script src="tabs.js" defer></script>

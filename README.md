@@ -5,6 +5,7 @@ ohne Cookies und ohne Drittanbieter.
 
 - `site/` wird unverändert veröffentlicht (GitHub Pages über `.github/workflows/pages.yml`, Actions auf Commit-SHA festgelegt, Dependabot hält sie aktuell).
 - **Die Domain wird in den Repo-Einstellungen gesetzt, nicht über `site/CNAME`:** Bei Veröffentlichung über einen eigenen Actions-Workflow ignoriert GitHub die CNAME-Datei. `site/CNAME` bleibt nur als Hinweis für einen späteren Umzug.
+- Die Schrift (IBM Plex Sans, SIL Open Font License) liegt selbst gehostet in `site/fonts/`, Lizenz in `site/fonts/OFL.txt`. Nie von Google Fonts laden: das überträgt die IP-Adresse ohne Einwilligung. Die Content-Security-Policy erlaubt deshalb `font-src 'self'`.
 - Alle Seiten tragen eine Content-Security-Policy per `<meta>`. Deshalb keine Inline-Skripte und keine `style`-Attribute; Skripte kommen als Datei (`tabs.js`), Abstände über Hilfsklassen in `styles.css`.
 
 ## Freischaltung (Reihenfolge wichtig)
